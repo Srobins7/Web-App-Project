@@ -15,6 +15,9 @@ router.post('/dashboard', function(req, res, next) {
   var symbol = req.body.symbol || "OOPS"
   console.log("STOCK SYMBOL", symbol)
 
+  //var requestUrlD = 'http://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams'
+  //var requestURLT = 'http://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/:team'
+
   var requestUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${API_KEY}` // using string interpolation here, but you could alternatively do concatenation with + operators
   console.log("REQUEST URL", requestUrl)
 
