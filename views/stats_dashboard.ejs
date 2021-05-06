@@ -1,0 +1,67 @@
+<h2>Team Stats (<%= symbol %>)</h2>
+
+<p class="lead">Latest Close: $<%= latestClose %> </p>
+
+<div id="chart-container" height="700px">
+
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+
+    console.log("STOCKS DASHBOARD...")
+
+    // use data from the router!
+    var symbol = '<%- symbol %>'
+    var stockData = JSON.parse('<%- data %>')
+    console.log(stockData)
+
+    var tsd = stockData["Time Series (Daily)"]
+    var dates = Object.keys(tsd)
+    var dailyPrices = Object.values(tsd)
+    var closingPrices = dailyPrices.map(obj => obj["5. adjusted close"])
+
+    // see: https://plotly.com/javascript/line-charts/
+    var series = {
+        x: dates,
+        y: closingPrices,
+        mode: "lines+markers"
+    }
+    var data = [series]
+    var layout = {
+        title: "Daily Closing Prices for Stock: " + symbol,
+        height: 600
+    }
+    Plotly.newPlot("chart-container", data, layout, {responsive: true})
+
+</script>

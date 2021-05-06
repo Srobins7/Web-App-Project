@@ -1,14 +1,14 @@
-<h2>Stocks Form</h2>
+<h2>Get Team Stats</h2>
 
-<p>Request some stock market data...</p>
+<p>Select a division and team</p>
 
-<form action="/stocks/dashboard" method="POST">
+<form action="/stats/dashboard" method="POST">
 
     <label>Stock Symbol:</label>
     <input type="text" name="symbol" placeholder="MSFT" value="MSFT">
     <br>
 
-<!--<label>Division:</label>
+<label>Division:</label>
   <select name="division">
       <option value="high">Atlantic</option>
       <option value="medium">Central</option>
@@ -19,19 +19,8 @@
   </select>
 
 
-  <label>Risk Tolerance:</label>
-    <select name="risk_level">
-        <option value="high">High</option>
-        <option value="medium">Medium</option>
-        <option value="low">Low</option>
-    </select>
-
-
-
---> 
-
-    <label>Risk Tolerance:</label>
-    <select name="risk_level">
+  <label>Team</label>
+    <select name="team_name">
         <option value="high">High</option>
         <option value="medium">Medium</option>
         <option value="low">Low</option>
@@ -39,4 +28,5 @@
     <br>
 
     <button>Submit</button>
+
 </form>
