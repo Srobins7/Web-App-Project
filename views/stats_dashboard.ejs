@@ -1,9 +1,9 @@
-<h2>Team Stats (<%= symbol %>)</h2>
+<h2>Team Stats </h2>
 
-<p class="lead">Latest Close: $<%= latestClose %> </p>
+<p class="lead">Team Name: <%= team_name %> </p>
 
 <div id="chart-container" height="700px">
-
+<!--
     <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -36,9 +36,21 @@
       
 </div>
 
+-->
+<script>
+var team_name = '<%- team_name %>'
+var team_data = JSON.parse('<%- data %>')
+console.log(team_data)
+
+var tsd = team_data["team"]
+var location = object.values(tsd['location'])
+
+
+</script>
+<!-- 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript">
-
+/*
     console.log("STOCKS DASHBOARD...")
 
     // use data from the router!
@@ -63,5 +75,6 @@
         height: 600
     }
     Plotly.newPlot("chart-container", data, layout, {responsive: true})
-
+*/
 </script>
+-->
