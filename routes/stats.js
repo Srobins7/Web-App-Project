@@ -23,9 +23,13 @@ router.post('/dashboard', function(req, res, next) {
     })
     .then(function(data){
         console.log("STATS DATA SUCCESS", Object.keys(data))
-        var team_name = Object.values(data["team"]["name"])
+        var team_name = Object.values(data["team"]["slug"]).join(" ")
+        var record = Object.values(data["team"]["record"]["items"][0]["summary"]).join("")
+        team_name = team_name.replace("-"," ").toUpperCase();
+        console.log(team_name)
+        console.log(record)
         req.flash("success", "Stats are ready")
-        res.render("stats_dashboard", {team: team, data: JSON.stringify(data), team_name: team_name});
+        res.render("stats_dashboard", {team_name: team_name, data: JSON.stringify(data), record: record});
       })
     .catch(function(err){
       console.log("Stat data error:", err)

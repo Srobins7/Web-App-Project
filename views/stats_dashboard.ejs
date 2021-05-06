@@ -1,6 +1,8 @@
 <h2>Team Stats </h2>
 
-<p class="lead">Team Name: <%= team_name %> </p>
+<p class="lead">Team Name: <%= team_name %> <br>
+Record: <%= record %>
+</p>
 
 <div id="chart-container" height="700px">
 <!--
@@ -16,7 +18,7 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
+            <td id="test">Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
           </tr>
@@ -36,8 +38,8 @@
       
 </div>
 
--->
-<script>
+
+<script type="text/javascript">
 var team_name = '<%- team_name %>'
 var team_data = JSON.parse('<%- data %>')
 console.log(team_data)
@@ -45,36 +47,7 @@ console.log(team_data)
 var tsd = team_data["team"]
 var location = object.values(tsd['location'])
 
+document.getElementById("test").innerHTML = location;
 
-</script>
-<!-- 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script type="text/javascript">
-/*
-    console.log("STOCKS DASHBOARD...")
-
-    // use data from the router!
-    var symbol = '<%- symbol %>'
-    var stockData = JSON.parse('<%- data %>')
-    console.log(stockData)
-
-    var tsd = stockData["Time Series (Daily)"]
-    var dates = Object.keys(tsd)
-    var dailyPrices = Object.values(tsd)
-    var closingPrices = dailyPrices.map(obj => obj["5. adjusted close"])
-
-    // see: https://plotly.com/javascript/line-charts/
-    var series = {
-        x: dates,
-        y: closingPrices,
-        mode: "lines+markers"
-    }
-    var data = [series]
-    var layout = {
-        title: "Daily Closing Prices for Stock: " + symbol,
-        height: 600
-    }
-    Plotly.newPlot("chart-container", data, layout, {responsive: true})
-*/
 </script>
 -->
