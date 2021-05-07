@@ -1,0 +1,106 @@
+<h1><%= message %></h1>
+<p>Compare across divisions. </p>
+
+
+<div id="myDiv" height="700px">
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+<script type="text/javascript">
+
+
+    
+    //plotly heatmap ex.
+
+    
+var xValues = ['Atlantic', 'B', 'C', 'D', 'E'];
+
+var yValues = ['Rank 4', 'Rank 3', 'Rank 2', 'Rank 1'];
+
+var tValues = [
+  ['Hawks', 'Lakers', 'Hawks', 'Hawks', 'Hawks'],
+  ['Hawks', 'Hawks', 'Hawks', 'Hawks', 'Hawks'],
+  ['Hawks', 'Hawks', 'Hawks', 'Hawks', 'Hawks'],
+  ['Hawks', 'Hawks', 'Hawks', 'Hawks', 'Hawks']
+];
+
+var zValues = [
+  [0.00, 0.00, 0.75, 0.75, 0.00],
+  [0.75, 0.00, 0.75, 0.75, 0.00],
+  [0.75, 0.75, 0.75, 0.75, 0.75],
+  [0.00, 0.00, 0.00, 0.75, 0.00]
+];
+
+var colorscaleValue = [
+  [0, '#3D9970'],
+  [1, '#001f3f']
+];
+
+var data = [{
+  x: xValues,
+  y: yValues,
+  z: zValues,
+  type: 'heatmap',
+  colorscale: colorscaleValue,
+  showscale: false
+}];
+
+var layout = {
+  //title: 'Annotated Heatmap',
+  annotations: [],
+  xaxis: {
+    ticks: '',
+    side: 'top'
+  },
+  yaxis: {
+    ticks: '',
+    ticksuffix: ' ',
+    width: 700,
+    height: 700,
+    autosize: false
+  }
+};
+
+for ( var i = 0; i < yValues.length; i++ ) {
+  for ( var j = 0; j < xValues.length; j++ ) {
+    var currentValue = zValues[i][j];
+    if (currentValue != 0.0) {
+      var textColor = 'white';
+    }else{
+      var textColor = 'black';
+    }
+    var result = {
+      xref: 'x1',
+      yref: 'y1',
+      x: xValues[j],
+      y: yValues[i],
+      //text: zValues[i][j],
+      text:tValues[i][j],
+      
+      font: {
+        family: 'Arial',
+        size: 12,
+        color: 'rgb(50, 171, 96)'
+      },
+      showarrow: false,
+      font: {
+        color: textColor
+      }
+    };
+    layout.annotations.push(result);
+  }
+}
+
+Plotly.newPlot('myDiv', data, layout);
+
+
+
+
+
+
+
+
+
+
+</script>
