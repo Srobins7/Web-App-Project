@@ -22,33 +22,33 @@ console.log(teamData)
 //empty variable to fill with loop on api data
 
 var all_teams = {
- 'atlantic': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}
+ 'atlantic': [{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }
 ],
- 'southeast': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}
+ 'southeast': [{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }
 ],
- 'central': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}
+ 'central': [{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }
 ],
- 'northwest': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}
+ 'northwest': [{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+ {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }
 ],
-'pacific': [{'name':'', 'win_percent':'', 'total_wins':''},{'name':'', 'win_percent':'', 'total_wins':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}
+'pacific': [{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, 
+{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }
 ],
-'southwest': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
- {'name':'', 'win_percent':'', 'division_win_percent':''}
+'southwest': [{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }, {'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 },
+{'name':'', 'win_percent':0, 'avg_scoring_margin':0, 'streak': 0 }
 ]
 
 }
-
+/*
 var key1 = 'name'
 var key2 = 'win_percent'
 var key3 = 'division_win_percent'
@@ -58,59 +58,133 @@ var key3 = 'division_win_percent'
             for (var j in all_teams[i]) {
                 console.log(Object.values(all_teams[i][j]['name']))
                
-                Object.keys(all_teams[i][j]).forEach(keys => {
-                    console.log(keys)
-                    for (var t = 1; t < 31; t++) {
+                //Object.values(all_teams[i][j]).forEach(values => {
+                    //console.log(values)
+                    for (var t = 0; t < 31; t++) {
                         //Atlantic
-                        if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '23' || '3' || '20' || '2' || '28') {
-                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
-                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
-                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '20' || '17' || '18' || '2' || '28') {
+                            all_teams['atlantic'][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams['atlantic'][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams['atlantic'][j]['division_win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
                         }
                         //Central
-                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' || '12' || '5' || '6' || '9') {
-                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
-                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
-                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '15' || '11' || '4' || '5' || '8') {
+                            all_teams['central'][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams['central'][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams['central'][j]['division_win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
                         }
                         //Southeast
-                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '1' || '16' || '4' || '30' || '22') {
-                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
-                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
-                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '1' || '14' || '30' || '27' || '19') {
+                            all_teams['southeast'][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams['southeast'][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams['southeast'][j]['division_win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
                         }
 
                         //Northwest
-                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '29' || '8' || '25' || '21' || '18') {
-                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
-                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
-                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '26' || '7' || '22' || '25' || '16') {
+                            all_teams['northwest'][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams['northwest'][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams['northwest'][j]['division_win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
                         }
 
                         //Pacific
-                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '24' || '13' || '14' || '10' || '26') {
-                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
-                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
-                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '21' || '12' || '13' || '9' || '23') {
+                            all_teams['pacific'][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams['pacific'][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams['pacific'][j]['division_win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
                         }
 
                         //Southwest
-                        //else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == 7 || 15 || 27 || 19 || 11 ) {
+                        //else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == 6 || 29 || 24 || 3 || 10 ) {
                         else {
-                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
-                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
-                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                            all_teams['southwest'][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams['southwest'][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams['southwest'][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
                         }
+                        console.log(all_teams)
                     }
 
 
-                })
+                //})
 
 
             }
         }
-console.log(all_teams) 
+console.log(all_teams) */
 
+var a = 0
+var b = 0
+var c = 0
+var d = 0
+var e = 0
+var f = 0
+        
+    //regex for getting rid of hypthens: https://www.encodedna.com/javascript/replace-hyphen-in-a-string-with-space-in-javascript.htm
+    for (var t = 0; t < 31; t++) {
+        
+            //Atlantic
+            if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '20' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '18' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '2' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '28') {
+                all_teams['atlantic'][a]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
+                all_teams['atlantic'][a]['win_percent'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['atlantic'][a]['avg_scoring_margin'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['atlantic'][a]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
+                a += 1
+            }
+            //Central
+            else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '15' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '11' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '4' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '5' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '8') {
+                all_teams['central'][b]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
+                all_teams['central'][b]['win_percent'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['central'][b]['avg_scoring_margin'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['central'][b]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
+                b += 1
+            }
+            //Southeast
+            else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '1' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '14' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '30' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '27' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '19') {
+                all_teams['southeast'][c]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
+                all_teams['southeast'][c]['win_percent'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['southeast'][c]['avg_scoring_margin'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['southeast'][c]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
+                c += 1
+            }
+
+            //Northwest
+            else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '26' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '7' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '22' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '25' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '16') {
+                all_teams['northwest'][d]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
+                all_teams['northwest'][d]['win_percent'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['northwest'][d]['avg_scoring_margin'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['northwest'][d]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
+                d += 1
+            }
+
+            //Pacific
+            else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '21' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '12' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '13' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '9' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '23') {
+                all_teams['pacific'][e]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
+                all_teams['pacific'][e]['win_percent'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['pacific'][e]['avg_scoring_margin'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['pacific'][e]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
+                e += 1
+            }
+
+            //Southwest
+            //else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == 6 || 29 || 24 || 3 || 10 ) {
+            else {
+                all_teams['southwest'][f]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
+                all_teams['southwest'][f]['win_percent'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['southwest'][f]['avg_scoring_margin'] = Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value'])+ 'e2') + 'e-2').toFixed(2)
+                all_teams['southwest'][f]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
+                f += 1
+            }
+           console.log(all_teams)
+        
+    }  
+
+    /*
+    for (var t = 0; t < 31; t++) {
+        if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '20'|| tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' ) {
+            console.log(tsd[0]['leagues'][0]['teams'][t]['team']['id'])
+            a = a + 1
+        }
+    } */
  //tests for location of different variables
  /*
 var team_name = tsd[0]['leagues'][0]['teams'][0]['team']['slug']
@@ -125,6 +199,8 @@ var test2 = tsd[0]['leagues'][0]['teams'][1]['team']['record']["items"][0]['stat
 console.log(test2)
 var test3 = tsd[0]['leagues'][0]['teams']
 console.log(test3)
+var test7 = tsd[0]['leagues'][0]['teams'][1]['team']['record']["items"][0]['stats']
+console.log(test7)
 
 var test5 = tsd[0]['leagues'][0]['teams'][0]['team']['id']
     console.log("id is " + test5)
@@ -134,7 +210,7 @@ for (var t = 0; t < 31; t++) {
     console.log("id is " + test4)
 }
 var dailyPrices = Object.values(tsd)
-var closingPrices = dailyPrices.map(obj => obj["5. adjusted close"]) 
+var closingPrices = dailyPrices.map(obj => obj["5. adjusted close"]) */
 
 
 
@@ -143,9 +219,9 @@ var closingPrices = dailyPrices.map(obj => obj["5. adjusted close"])
 
 /*
     
-var xValues = ['Atlantic', 'B', 'C', 'D', 'E'];
+var xValues = ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest'];
 
-var yValues = ['Number of Wins', 'Rank 3', 'Rank 2', 'Rank 1'];
+var yValues = ['Rank 5','Rank 4', 'Rank 3', 'Rank 2', 'Rank 1'];
 
 var tValues = [
   ['Hawks', 'Lakers', 'Hawks', 'Hawks', 'Hawks'],
