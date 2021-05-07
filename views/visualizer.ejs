@@ -10,13 +10,142 @@
 <script type="text/javascript">
 
 
-    
-    //plotly heatmap ex.
 
+ // use data from the router!
+var teamData = JSON.parse('<%- data %>')
+
+console.log(teamData)
+
+var tsd = teamData["sports"]
+console.log(teamData)
+
+//empty variable to fill with loop on api data
+
+var all_teams = {
+ 'atlantic': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}
+],
+ 'southeast': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}
+],
+ 'central': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}
+],
+ 'northwest': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}
+],
+'pacific': [{'name':'', 'win_percent':'', 'total_wins':''},{'name':'', 'win_percent':'', 'total_wins':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}
+],
+'southwest': [{'name':'', 'win_percent':'', 'division_win_percent':''},{'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}, {'name':'', 'win_percent':'', 'division_win_percent':''}, 
+ {'name':'', 'win_percent':'', 'division_win_percent':''}
+]
+
+}
+
+var key1 = 'name'
+var key2 = 'win_percent'
+var key3 = 'division_win_percent'
+
+        for (var i in all_teams) {
+            console.log(all_teams[i])
+            for (var j in all_teams[i]) {
+                console.log(Object.values(all_teams[i][j]['name']))
+               
+                Object.keys(all_teams[i][j]).forEach(keys => {
+                    console.log(keys)
+                    for (var t = 1; t < 31; t++) {
+                        //Atlantic
+                        if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '23' || '3' || '20' || '2' || '28') {
+                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        }
+                        //Central
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' || '12' || '5' || '6' || '9') {
+                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        }
+                        //Southeast
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '1' || '16' || '4' || '30' || '22') {
+                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        }
+
+                        //Northwest
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '29' || '8' || '25' || '21' || '18') {
+                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        }
+
+                        //Pacific
+                        else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '24' || '13' || '14' || '10' || '26') {
+                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        }
+
+                        //Southwest
+                        //else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == 7 || 15 || 27 || 19 || 11 ) {
+                        else {
+                            all_teams[i][j]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug']
+                            all_teams[i][j]['win_percent'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']
+                            all_teams[i][j]['total_wins'] = tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][16]['value']
+                        }
+                    }
+
+
+                })
+
+
+            }
+        }
+console.log(all_teams) 
+
+ //tests for location of different variables
+ /*
+var team_name = tsd[0]['leagues'][0]['teams'][0]['team']['slug']
+console.log(team_name)
+var test = tsd[0]['leagues'][0]['teams'][0]['team']['record']["items"][0]['stats'][3]['value']
+console.log(test)
+var test1 = tsd[0]['leagues'][0]['teams'][0]['team']['record']["items"][0]['stats'][16]['value']
+console.log(test1)
+var team_name1 = tsd[0]['leagues'][0]['teams'][1]['team']['slug']
+console.log(team_name1)
+var test2 = tsd[0]['leagues'][0]['teams'][1]['team']['record']["items"][0]['stats'][16]['value']
+console.log(test2)
+var test3 = tsd[0]['leagues'][0]['teams']
+console.log(test3)
+
+var test5 = tsd[0]['leagues'][0]['teams'][0]['team']['id']
+    console.log("id is " + test5)
+
+for (var t = 0; t < 31; t++) {
+    var test4 = tsd[0]['leagues'][0]['teams'][t]['team']['id']
+    console.log("id is " + test4)
+}
+var dailyPrices = Object.values(tsd)
+var closingPrices = dailyPrices.map(obj => obj["5. adjusted close"]) 
+
+
+
+
+//plotly heatmap ex.
+
+/*
     
 var xValues = ['Atlantic', 'B', 'C', 'D', 'E'];
 
-var yValues = ['Rank 4', 'Rank 3', 'Rank 2', 'Rank 1'];
+var yValues = ['Number of Wins', 'Rank 3', 'Rank 2', 'Rank 1'];
 
 var tValues = [
   ['Hawks', 'Lakers', 'Hawks', 'Hawks', 'Hawks'],
@@ -95,8 +224,19 @@ for ( var i = 0; i < yValues.length; i++ ) {
 Plotly.newPlot('myDiv', data, layout);
 
 
+*/
 
 
+/* var xValues = ['Hawks', 'Lakers', 'Knicks', 'Spurs', 'Bulls'];
+        var yValues = ['Hawks', 'Lakers', 'Knicks', 'Spurs', 'Bulls'];
+        var tValues = [
+            [null, 0.00, 0.75, 0.75, 0.00],
+            [0.75, null, 0.75, 0.75, 0.00],
+            [0.75, 0.75, null, 0.75, 0.75],
+            [0.00, 0.00, 0.00, null, 0.00],
+            [0.00, 0.00, 0.00, 0.75, null]
+        ];
+        var zValues = tValues */
 
 
 
