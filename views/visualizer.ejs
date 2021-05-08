@@ -70,24 +70,24 @@
         //Atlantic
         if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '20' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '18' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '2' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '28') {
             all_teams['atlantic'][a]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['atlantic'][a]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e2') + 'e-2').toFixed(2))
-            all_teams['atlantic'][a]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e2') + 'e-2').toFixed(2))
+            all_teams['atlantic'][a]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['atlantic'][a]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['atlantic'][a]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
             a += 1
         }
         //Central
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '15' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '11' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '4' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '5' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '8') {
             all_teams['central'][b]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['central'][b]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e2') + 'e-2').toFixed(2))
-            all_teams['central'][b]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e2') + 'e-2').toFixed(2))
+            all_teams['central'][b]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['central'][b]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['central'][b]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
             b += 1
         }
         //Southeast
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '1' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '14' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '30' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '27' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '19') {
             all_teams['southeast'][c]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['southeast'][c]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e2') + 'e-2').toFixed(2))
-            all_teams['southeast'][c]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e2') + 'e-2').toFixed(2))
+            all_teams['southeast'][c]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['southeast'][c]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southeast'][c]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
             c += 1
         }
@@ -95,8 +95,8 @@
         //Northwest
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '26' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '7' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '22' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '25' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '16') {
             all_teams['northwest'][d]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['northwest'][d]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e2') + 'e-2').toFixed(2))
-            all_teams['northwest'][d]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e2') + 'e-2').toFixed(2))
+            all_teams['northwest'][d]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['northwest'][d]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['northwest'][d]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
             d += 1
         }
@@ -104,8 +104,8 @@
         //Pacific
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '21' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '12' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '13' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '9' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '23') {
             all_teams['pacific'][e]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['pacific'][e]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e2') + 'e-2').toFixed(2))
-            all_teams['pacific'][e]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e2') + 'e-2').toFixed(2))
+            all_teams['pacific'][e]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['pacific'][e]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['pacific'][e]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
             e += 1
         }
@@ -113,12 +113,12 @@
         //Southwest
         else {
             all_teams['southwest'][f]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['southwest'][f]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e2') + 'e-2').toFixed(2))
-            all_teams['southwest'][f]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e2') + 'e-2').toFixed(2))
+            all_teams['southwest'][f]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['southwest'][f]['avg_scoring_margin'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][14]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southwest'][f]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
             f += 1
         }
-        console.log(all_teams)
+        //console.log(all_teams)
 
     }
 
@@ -192,7 +192,7 @@
     ]; 
    
 
-    console.log(tValues)
+    //console.log(tValues)
    //vertical zvalues
     /*var zValues = [
         [0.00, 0.00, 0.75, 0.75, 0.00, 0.00],
@@ -204,63 +204,135 @@
 
     //horizontal zvalues
     var zValues = [
-        [0.00, 0.00, 0.75, 0.75, 0.00],
-        [0.75, 0.00, 0.75, 0.75, 0.00],
-        [0.75, 0.75, 0.75, 0.75, 0.75],
-        [0.00, 0.00, 0.00, 0.75, 0.00],
-        [0.00, 0.00, 0.00, 0.75, 0.00],
-        [0.00, 0.00, 0.00, 0.75, 0.00]
+        [, , , , ],
+        [ , , , ,],
+        [, , , , ],
+        [, , , , ],
+        [, , , , ],
+        [, , , , ]
     ];
+    console.log(zValues[0][0])
+    for (var m = 0; m<5; m++) {
+          
+        zValues[0][m]= all_teams['atlantic'][m]['win_percent']
+        zValues[1][m]= all_teams['central'][m]['win_percent']
+        zValues[2][m]= all_teams['southeast'][m]['win_percent']
+        zValues[3][m]= all_teams['northwest'][m]['win_percent']
+        zValues[4][m]= all_teams['pacific'][m]['win_percent']
+        zValues[5][m]= all_teams['southwest'][m]['win_percent']
+             
+        
+    }
+    console.log(zValues)
+    
+    team_win = {}
+   
+    for (var q = 0; q<5; q++) {
+        for (var w = 0; w<5; w++) {
+            if (all_teams['atlantic'][q]['name'] == "boston celtics" ) { team_win["boston celtics"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "brooklyn nets" ) {  team_win["brooklyn nets"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "new york knicks" ) {  team_win["new york knicks"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "philadelphia 76ers" ) {  team_win["philadelphia 76ers"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "toronto raptors" ) {  team_win["toronto raptors"] = all_teams['atlantic'][q]['win_percent']}
+            
+        }
+    } 
+    
+    
+    for (var q = 0; q<5; q++) {
+        for (var w = 0; w<5; w++) {        
+            if (all_teams['central'][q]['name'] == "chicago bulls" ) {  team_win["Chicago Bulls"] = all_teams['central'][q]['win_percent']}
+            else if (all_teams['central'][q]['name'] == "cleveland cavaliers" ) {  team_win["Cleveland Cavaliers"] = all_teams['central'][q]['win_percent']}
+            else if (all_teams['central'][q]['name'] == "detroit pistons" ) {  team_win["Detroit Pistons"] = all_teams['central'][q]['win_percent']}
+            else if (all_teams['central'][q]['name'] == "indiana pacers" ) { team_win["Indiana Pacers"] = all_teams['central'][q]['win_percent']}
+            else if (all_teams['central'][q]['name'] == "milwaukee bucks" ) { team_win["Milwaukee Bucks"] = all_teams['central'][q]['win_percent']}
+        }
+    }                
+    for (var q = 0; q<5; q++) {
+        for (var w = 0; w<5; w++) {            
+            if (all_teams['southeast'][q]['name'] == "atlanta hawks" ) {  team_win["Atlanta Hawks"] = all_teams['southeast'][q]['win_percent']}
+            else if (all_teams['southeast'][q]['name'] == "charlotte hornets" ) {  team_win["Charlotte Hornets"] = all_teams['southeast'][q]['win_percent']}
+            else if (all_teams['southeast'][q]['name'] == "miami heat" ) {  team_win["Miami Heat"] = all_teams['southeast'][q]['win_percent']}
+            else if (all_teams['southeast'][q]['name'] == "orlando magic" ) {  team_win["Orlando Magic"] = all_teams['southeast'][q]['win_percent']}  
+            else if (all_teams['southeast'][q]['name'] == "washington wizards" ) {  team_win["Washington Wizards"] = all_teams['southeast'][q]['win_percent']}
+        }
+    } 
+    for (var q = 0; q<5; q++) {
+        for (var w = 0; w<5; w++) {               
+            if (all_teams['northwest'][q]['name'] == "denver nuggets" ) {  team_win["Denver Nuggets"] = all_teams['northwest'][q]['win_percent']}
+            else if (all_teams['northwest'][q]['name'] == "minnesota timberwolves" ) {  team_win["Minnesota Timberwolves"] = all_teams['northwest'][q]['win_percent']}
+            else if (all_teams['northwest'][q]['name'] == "oklahoma city thunder" ) {  team_win["Oklahoma City Thunder"] = all_teams['northwest'][q]['win_percent']}
+            else if (all_teams['northwest'][q]['name'] == "portland trail blazers" ) {  team_win["Portland Trail Blazers"] = all_teams['northwest'][q]['win_percent']}
+            else if (all_teams['northwest'][q]['name'] == "utah jazz" ) {  team_win["Utah Jazz"] = all_teams['northwest'][q]['win_percent']}
+            
+        }
+    }   
+    for (var q = 0; q<5; q++) {
+        for (var w = 0; w<5; w++) {             
+            if (all_teams['pacific'][q]['name'] == "golden state warriors" ) { team_win["Golden State Warriors"] = all_teams['pacific'][q]['win_percent']}
+            else if (all_teams['pacific'][q]['name'] == "la clippers" ) {  team_win["LA Clippers"] = all_teams['pacific'][q]['win_percent']}
+            else if (all_teams['pacific'][q]['name'] == "los angeles lakers" ) {  team_win["Los Angeles Lakers"] = all_teams['pacific'][q]['win_percent']}
+            else if (all_teams['pacific'][q]['name'] == "phoenix suns" ) {  team_win["Phoenix Suns"] = all_teams['pacific'][q]['win_percent']}
+            else if (all_teams['pacific'][q]['name'] == "sacramento kings" ) {  team_win["Sacramento Kings"] = all_teams['pacific'][q]['win_percent']}
+            
+        }
+    }    
+    for (var q = 0; q<5; q++) {
+        for (var w = 0; w<5; w++) {            
+            if (all_teams['southwest'][q]['name'] == "dallas mavericks" ) {  team_win["Dallas Mavericks"] = all_teams['southwest'][q]['win_percent']}
+            else if (all_teams['southwest'][q]['name'] == "houston rockets" ) {  team_win["Houston Rockets"] = all_teams['southwest'][q]['win_percent']}
+            else if (all_teams['southwest'][q]['name'] == "memphis grizzlies" ) {  team_win["Memphis Grizzlies"] = all_teams['southwest'][q]['win_percent']}
+            else if (all_teams['southwest'][q]['name'] == "new orleans pelicans" ) {  team_win["New Orleans Pelicans"] = all_teams['southwest'][q]['win_percent']}
+            else if (all_teams['southwest'][q]['name'] == "san antonio spurs" ) {  team_win["San Antonio Spurs"] = all_teams['southwest'][q]['win_percent']}
+
+        }
+    }            
+      
+    
+    console.log(team_win)
     
 
-    /*for (q in zValues) {
-        for (q1 in zValues[q]) {
-            if (all_teams['atlantic'][q1]['name'] == "boston celtics" ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == "brooklyn nets") { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == "new york knicks" ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == "philadelphia 76ers" ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == "toronto raptors" ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['central'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['central'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['central'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['central'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['central'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-            else if (all_teams['atlantic'][q1]['name'] == ) { zValues[q][q1].push(all_teams['atlantic'][q1]['name'])}
-             
-        }
-    }*/
+    //sorting zValues Highest to smallest: https://www.codegrepper.com/code-examples/javascript/sort+array+greatest+to+least
+    
 
+    
+    zValues[0].sort((a, b) => b-a)
+    zValues[1].sort((a, b) => b-a)
+    zValues[2].sort((a, b) => b-a)
+    zValues[3].sort((a, b) => b-a)
+    zValues[4].sort((a, b) => b-a)
+    zValues[5].sort((a, b) => b-a)
+
+    
+
+
+    console.log(zValues)
+
+    console.log(Object.keys(all_teams['atlantic'][0]))
+    
+
+    //get key by its value function: https://stackoverflow.com/questions/9907419/how-to-get-a-key-in-a-javascript-object-by-its-value
+    function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    }
+
+    /* default color scale
     var colorscaleValue = [
         [0, '#3D9970'],
         [1, '#001f3f']
-    ];
+    ];*/
+
+    // different color scales: https://plotly.com/javascript/colorscales/
 
     var data = [{
         x: xValues,
         y: yValues,
         z: zValues,
         type: 'heatmap',
-        colorscale: colorscaleValue,
-        showscale: false
+        //colorscale: colorscaleValue,
+        colorscale:'YlGnBu',
+        //colorscale:'Viridis',
+        showscale: true
     }];
 
     var layout = {
@@ -275,17 +347,23 @@
             ticksuffix: ' ',
             width: 1500,
             height: 1500,
-            autosize: false
+            autosize: true
         }
     };
-
-    for (var i = 0; i < yValues.length; i++) {
-        for (var j = 0; j < xValues.length; j++) {
-            var currentValue = zValues[i][j];
-            if (currentValue != 0.0) {
+/*      Text coloring for default color scale
+        if (currentValue != 0.0) {
                 var textColor = 'white';
             } else {
                 var textColor = 'black';
+            }
+            */
+    for (var i = 0; i < yValues.length; i++) {
+        for (var j = 0; j < xValues.length; j++) {
+            var currentValue = zValues[i][j];
+            if (currentValue > 0.5) {
+                var textColor = 'black';
+            } else {
+                var textColor = 'white';
             }
             var result = {
                 xref: 'x1',
@@ -293,7 +371,9 @@
                 x: xValues[j],
                 y: yValues[i],
                 //text: zValues[i][j],
-                text: tValues[i][j],
+                //text: tValues[i][j],
+                text:getKeyByValue(team_win ,zValues[i][j]),
+                
 
                 font: {
                     family: 'Arial',
