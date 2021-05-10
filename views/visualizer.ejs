@@ -15,13 +15,13 @@
 <label class="btn btn-secondary" for="option3">Streak Chart</label>
 
 
-<div id="myDiv" height="700px">
+<div id="myDiv" height="700px" style= "margin-bottom: -2em;">
 </div>
 
-<div id="myDiv1" height="700px">
+<div id="myDiv1" height="700px" style= "margin-top:2em" >
 </div>
 
-<div id="myDiv2" height="700px">
+<div id="myDiv2" height="700px" style= "margin-top:2em">
 </div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -189,29 +189,58 @@
     var bar_radio = document.getElementById("option3")
     var chart_name = document.getElementById("chart_name")
     var chart_describe = document.getElementById("chart_describe")
+    var display_div1 = document.getElementById('myDiv')
+    var display_div2 = document.getElementById('myDiv1')
+    var display_div3 = document.getElementById('myDiv2')
+    //var display_div3 = document.getElementsByTagName('div')[7].id
+
+    display_div1.style.display = "block"
+    display_div2.style.display = "none"
+    display_div3.style.display = "none"
 
     function showHeatMap() {
             console.log("heatmap")
-            document.getElementsByTagName('div')[5].id = "myDiv"
+            if (display_div1.style.display === "none") {
+                display_div1.style.display = "block";
+
+            } else {
+                display_div1.style.display = "none";
+            }
+            
             chart_name.innerText = "Win Percent Heatmap"
             chart_describe.innerText = ""
+
             console.log(document.getElementsByTagName('div')[5].id)
             console.log(chart_name)
             console.log(chart_describe)
         }
         function showDotPlot() {
             console.log("dotplot")
-            document.getElementsByTagName('div')[5].id = "myDiv1"
+            
+            if (display_div2.style.display === "none") {
+                display_div2.style.display = "block";
+
+            } else {
+                display_div2.style.display = "none";
+            }
+
             chart_name.innerText = "Average Score Dot Plot"
             chart_describe.innerText = ""
-            console.log(document.getElementsByTagName('div')[5].id)
+            console.log(document.getElementsByTagName('div')[6].id)
             console.log(chart_name)
             console.log(chart_describe)
         }
 
         function showBarChart() {
             console.log("bar chart")
-            document.getElementsByTagName('div')[5].id = "myDiv2"
+            
+            if (display_div3.style.display === "none") {
+                display_div3.style.display = "block";
+
+            } else {
+                display_div3.style.display = "none";
+            }
+
             chart_name.innerText = "Streak Chart"
             chart_describe.innerText = ""
             console.log(document.getElementsByTagName('div')[5].id)
@@ -225,7 +254,7 @@
     
     bar_radio.addEventListener("click", showBarChart)
     
-    if(document.getElementsByTagName('div')[5].id == "myDiv") {
+    
 
     //plotly annotated heatmap: https://plotly.com/javascript/heatmaps/
 
@@ -415,8 +444,8 @@
         yaxis: {
             ticks: '',
             ticksuffix: ' ',
-            width: 1500,
-            height: 1500,
+            //width: 2000,
+            //height: 1500,
             autosize: true
         }
     };
@@ -463,10 +492,10 @@
 
     Plotly.newPlot('myDiv', data, layout);
 
-}
 
 
-else if(document.getElementsByTagName('div')[5].id == "myDiv1") {
+
+
 
 
 //plotly dot plot: https://plotly.com/javascript/dot-plots/
@@ -477,11 +506,11 @@ team_points = {}
    
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {
-           if (all_teams['atlantic'][q]['name'] == "boston celtics" ) { team_points["boston celtics APF"] = all_teams['atlantic'][q]['avgPointFor'], team_points["boston celtics APA"] = all_teams['atlantic'][q]['avgPointAgainst']}
-           else if (all_teams['atlantic'][q]['name'] == "brooklyn nets" ) { team_points["brooklyn nets APF"] = all_teams['atlantic'][q]['avgPointFor'], team_points["brooklyn nets APA"] = all_teams['atlantic'][q]['avgPointAgainst']}
-           else if (all_teams['atlantic'][q]['name'] == "new york knicks" ) { team_points["new york knicks APF"] = all_teams['atlantic'][q]['avgPointFor'], team_points["new york knicks APA"] = all_teams['atlantic'][q]['avgPointAgainst']}
-           else if (all_teams['atlantic'][q]['name'] == "philadelphia 76ers" ) { team_points["philadelphia 76ers APF"] = all_teams['atlantic'][q]['avgPointFor'], team_points["philadelphia 76ers APA"] = all_teams['atlantic'][q]['avgPointAgainst']}
-           else if (all_teams['atlantic'][q]['name'] == "toronto raptors" ) { team_points["toronto raptors APF"] = all_teams['atlantic'][q]['avgPointFor'], team_points["toronto raptors APA"] = all_teams['atlantic'][q]['avgPointAgainst']}
+           if (all_teams['atlantic'][q]['name'] == "boston celtics" ) { team_points["boston celtics APF"] = all_teams['atlantic'][q]['avgPointsFor'], team_points["boston celtics APA"] = all_teams['atlantic'][q]['avgPointsAgainst']}
+           else if (all_teams['atlantic'][q]['name'] == "brooklyn nets" ) { team_points["brooklyn nets APF"] = all_teams['atlantic'][q]['avgPointsFor'], team_points["brooklyn nets APA"] = all_teams['atlantic'][q]['avgPointsAgainst']}
+           else if (all_teams['atlantic'][q]['name'] == "new york knicks" ) { team_points["new york knicks APF"] = all_teams['atlantic'][q]['avgPointsFor'], team_points["new york knicks APA"] = all_teams['atlantic'][q]['avgPointsAgainst']}
+           else if (all_teams['atlantic'][q]['name'] == "philadelphia 76ers" ) { team_points["philadelphia 76ers APF"] = all_teams['atlantic'][q]['avgPointsFor'], team_points["philadelphia 76ers APA"] = all_teams['atlantic'][q]['avgPointsAgainst']}
+           else if (all_teams['atlantic'][q]['name'] == "toronto raptors" ) { team_points["toronto raptors APF"] = all_teams['atlantic'][q]['avgPointsFor'], team_points["toronto raptors APA"] = all_teams['atlantic'][q]['avgPointsAgainst']}
            
        }
    } 
@@ -489,50 +518,52 @@ team_points = {}
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {        
            if (all_teams['central'][q]['name'] == "chicago bulls" ) { team_points["chicago bulls APF"] = all_teams['central'][q]['avgPointFor'], team_points["chicago bulls APA"] = all_teams['central'][q]['avgPointAgainst']}
-           else if (all_teams['central'][q]['name'] == "cleveland cavaliers" ) { team_points["cleveland cavaliers APF"] = all_teams['central'][q]['avgPointFor'], team_points["cleveland cavaliers APA"] = all_teams['central'][q]['avgPointAgainst']}
-           else if (all_teams['central'][q]['name'] == "detroit pistons" ) { team_points["detroit pistons APF"] = all_teams['central'][q]['avgPointFor'], team_points["detroit pistons APA"] = all_teams['central'][q]['avgPointAgainst']}
-           else if (all_teams['central'][q]['name'] == "indiana pacers" ) { team_points["indiana pacers APF"] = all_teams['central'][q]['avgPointFor'], team_points["indiana pacers APA"] = all_teams['central'][q]['avgPointAgainst']}
-           else if (all_teams['central'][q]['name'] == "milwaukee bucks" ) { team_points["milwaukee bucks APF"] = all_teams['central'][q]['avgPointFor'], team_points["milwaukee bucks APA"] = all_teams['central'][q]['avgPointAgainst']}
+           else if (all_teams['central'][q]['name'] == "cleveland cavaliers" ) { team_points["cleveland cavaliers APF"] = all_teams['central'][q]['avgPointsFor'], team_points["cleveland cavaliers APA"] = all_teams['central'][q]['avgPointsAgainst']}
+           else if (all_teams['central'][q]['name'] == "detroit pistons" ) { team_points["detroit pistons APF"] = all_teams['central'][q]['avgPointsFor'], team_points["detroit pistons APA"] = all_teams['central'][q]['avgPointsAgainst']}
+           else if (all_teams['central'][q]['name'] == "indiana pacers" ) { team_points["indiana pacers APF"] = all_teams['central'][q]['avgPointsFor'], team_points["indiana pacers APA"] = all_teams['central'][q]['avgPointsAgainst']}
+           else if (all_teams['central'][q]['name'] == "milwaukee bucks" ) { team_points["milwaukee bucks APF"] = all_teams['central'][q]['avgPointsFor'], team_points["milwaukee bucks APA"] = all_teams['central'][q]['avgPointsAgainst']}
        }
    }                
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {            
-           if (all_teams['southeast'][q]['name'] == "atlanta hawks" ) { team_points["atlanta hawks APF"] = all_teams['southeast'][q]['avgPointFor'], team_points["atlanta hawks APA"] = all_teams['southeast'][q]['avgPointAgainst']}
-           else if (all_teams['southeast'][q]['name'] == "charlotte hornets" ) { team_points["charlotte hornets APF"] = all_teams['southeast'][q]['avgPointFor'], team_points["charlotte hornets APA"] = all_teams['southeast'][q]['avgPointAgainst']}
-           else if (all_teams['southeast'][q]['name'] == "miami heat" ) { team_points["miami heat APF"] = all_teams['southeast'][q]['avgPointFor'], team_points["miami heat APA"] = all_teams['southeast'][q]['avgPointAgainst']}
-           else if (all_teams['southeast'][q]['name'] == "orlando magic" ) { team_points["orlando magic APF"] = all_teams['southeast'][q]['avgPointFor'], team_points["orlando magic APA"] = all_teams['southeast'][q]['avgPointAgainst']}
-           else if (all_teams['southeast'][q]['name'] == "washington wizards" ) { team_points["washington wizards APF"] = all_teams['southeast'][q]['avgPointFor'], team_points["washington wizards APA"] = all_teams['southeast'][q]['avgPointAgainst']}
+           if (all_teams['southeast'][q]['name'] == "atlanta hawks" ) { team_points["atlanta hawks APF"] = all_teams['southeast'][q]['avgPointsFor'], team_points["atlanta hawks APA"] = all_teams['southeast'][q]['avgPointsAgainst']}
+           else if (all_teams['southeast'][q]['name'] == "charlotte hornets" ) { team_points["charlotte hornets APF"] = all_teams['southeast'][q]['avgPointsFor'], team_points["charlotte hornets APA"] = all_teams['southeast'][q]['avgPointsAgainst']}
+           else if (all_teams['southeast'][q]['name'] == "miami heat" ) { team_points["miami heat APF"] = all_teams['southeast'][q]['avgPointsFor'], team_points["miami heat APA"] = all_teams['southeast'][q]['avgPointsAgainst']}
+           else if (all_teams['southeast'][q]['name'] == "orlando magic" ) { team_points["orlando magic APF"] = all_teams['southeast'][q]['avgPointsFor'], team_points["orlando magic APA"] = all_teams['southeast'][q]['avgPointsAgainst']}
+           else if (all_teams['southeast'][q]['name'] == "washington wizards" ) { team_points["washington wizards APF"] = all_teams['southeast'][q]['avgPointsFor'], team_points["washington wizards APA"] = all_teams['southeast'][q]['avgPointsAgainst']}
        }
    } 
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {               
-           if (all_teams['northwest'][q]['name'] == "denver nuggets" ) { team_points["denver nuggets APF"] = all_teams['northwest'][q]['avgPointFor'], team_points["denver nuggets APA"] = all_teams['northwest'][q]['avgPointAgainst']}
-           else if (all_teams['northwest'][q]['name'] == "minnesota timberwolves" ) { team_points["minnesota timberwolves APF"] = all_teams['northwest'][q]['avgPointFor'], team_points["minnesota timberwolves APA"] = all_teams['northwest'][q]['avgPointAgainst']}
-           else if (all_teams['northwest'][q]['name'] == "oklahoma city thunder" ) { team_points["oklahoma city thunder APF"] = all_teams['northwest'][q]['avgPointFor'], team_points["oklahoma city thunder APA"] = all_teams['northwest'][q]['avgPointAgainst']}
-           else if (all_teams['northwest'][q]['name'] == "portland trail blazers" ) { team_points["portland trail blazers APF"] = all_teams['northwest'][q]['avgPointFor'], team_points["portland trail blazers APA"] = all_teams['northwest'][q]['avgPointAgainst']}
-           else if (all_teams['northwest'][q]['name'] == "utah jazz" ) { team_points["utah jazz APF"] = all_teams['atlantic'][q]['northwest'], team_points["utah jazz APA"] = all_teams['northwest'][q]['avgPointAgainst']}
+           if (all_teams['northwest'][q]['name'] == "denver nuggets" ) { team_points["denver nuggets APF"] = all_teams['northwest'][q]['avgPointsFor'], team_points["denver nuggets APA"] = all_teams['northwest'][q]['avgPointAgainst']}
+           else if (all_teams['northwest'][q]['name'] == "minnesota timberwolves" ) { team_points["minnesota timberwolves APF"] = all_teams['northwest'][q]['avgPointsFor'], team_points["minnesota timberwolves APA"] = all_teams['northwest'][q]['avgPointAgainst']}
+           else if (all_teams['northwest'][q]['name'] == "oklahoma city thunder" ) { team_points["oklahoma city thunder APF"] = all_teams['northwest'][q]['avgPointsFor'], team_points["oklahoma city thunder APA"] = all_teams['northwest'][q]['avgPointAgainst']}
+           else if (all_teams['northwest'][q]['name'] == "portland trail blazers" ) { team_points["portland trail blazers APF"] = all_teams['northwest'][q]['avgPointsFor'], team_points["portland trail blazers APA"] = all_teams['northwest'][q]['avgPointsAgainst']}
+           else if (all_teams['northwest'][q]['name'] == "utah jazz" ) { team_points["utah jazz APF"] = all_teams['atlantic'][q]['avgPointsFor'], team_points["utah jazz APA"] = all_teams['northwest'][q]['avgPointAgainst']}
            
        }
    }   
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {             
-           if (all_teams['pacific'][q]['name'] == "golden state warriors" ) { team_points["golden state warriors APF"] = all_teams['pacific'][q]['avgPointFor'], team_points["golden state warriors APA"] = all_teams['pacific'][q]['avgPointAgainst']}
-           else if (all_teams['pacific'][q]['name'] == "la clippers" ) { team_points["la clippers APF"] = all_teams['pacific'][q]['avgPointFor'], team_points["la clippers APA"] = all_teams['pacific'][q]['avgPointAgainst']}
-           else if (all_teams['pacific'][q]['name'] == "los angeles lakers" ) { team_points["los angeles lakers APF"] = all_teams['pacific'][q]['avgPointFor'], team_points["los angeles lakers APA"] = all_teams['pacific'][q]['avgPointAgainst']}
-           else if (all_teams['pacific'][q]['name'] == "phoenix suns" ) { team_points["phoenix suns APF"] = all_teams['pacific'][q]['avgPointFor'], team_points["phoenix suns APA"] = all_teams['pacific'][q]['avgPointAgainst']}
-           else if (all_teams['pacific'][q]['name'] == "sacramento kings" ) { team_points["sacramento kings APF"] = all_teams['pacific'][q]['avgPointFor'], team_points["sacramento kings APA"] = all_teams['pacific'][q]['avgPointAgainst']}
+           if (all_teams['pacific'][q]['name'] == "golden state warriors" ) { team_points["golden state warriors APF"] = all_teams['pacific'][q]['avgPointsFor'], team_points["golden state warriors APA"] = all_teams['pacific'][q]['avgPointsAgainst']}
+           else if (all_teams['pacific'][q]['name'] == "la clippers" ) { team_points["la clippers APF"] = all_teams['pacific'][q]['avgPointsFor'], team_points["la clippers APA"] = all_teams['pacific'][q]['avgPointsAgainst']}
+           else if (all_teams['pacific'][q]['name'] == "los angeles lakers" ) { team_points["los angeles lakers APF"] = all_teams['pacific'][q]['avgPointsFor'], team_points["los angeles lakers APA"] = all_teams['pacific'][q]['avgPointsAgainst']}
+           else if (all_teams['pacific'][q]['name'] == "phoenix suns" ) { team_points["phoenix suns APF"] = all_teams['pacific'][q]['avgPointsFor'], team_points["phoenix suns APA"] = all_teams['pacific'][q]['avgPointsAgainst']}
+           else if (all_teams['pacific'][q]['name'] == "sacramento kings" ) { team_points["sacramento kings APF"] = all_teams['pacific'][q]['avgPointsFor'], team_points["sacramento kings APA"] = all_teams['pacific'][q]['avgPointsAgainst']}
        }
    }    
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {            
-           if (all_teams['southwest'][q]['name'] == "dallas mavericks" ) { team_points["dallas mavericks APF"] = all_teams['southwest'][q]['avgPointFor'], team_points["dallas mavericks APA"] = all_teams['southwest'][q]['avgPointAgainst']}
-           else if (all_teams['southwest'][q]['name'] == "houston rockets" ) { team_points["houston rockets APF"] = all_teams['southwest'][q]['avgPointFor'], team_points["houston rockets APA"] = all_teams['southwest'][q]['avgPointAgainst']}
-           else if (all_teams['southwest'][q]['name'] == "memphis grizzlies" ) { team_points["memphis grizzlies APF"] = all_teams['southwest'][q]['avgPointFor'], team_points["memphis grizzlies APA"] = all_teams['southwest'][q]['avgPointAgainst']}
-           else if (all_teams['southwest'][q]['name'] == "new orleans pelicans" ) { team_points["new orleans pelicans APF"] = all_teams['southwest'][q]['avgPointFor'], team_points["new orleans pelicans APA"] = all_teams['southwest'][q]['avgPointAgainst']}
-           else if (all_teams['southwest'][q]['name'] == "san antonio spurs" ) { team_points["san antonio spurs APF"] = all_teams['southwest'][q]['avgPointFor'], team_points["san antonio spurs APA"] = all_teams['southwest'][q]['avgPointAgainst']}
+           if (all_teams['southwest'][q]['name'] == "dallas mavericks" ) { team_points["dallas mavericks APF"] = all_teams['southwest'][q]['avgPointsFor'], team_points["dallas mavericks APA"] = all_teams['southwest'][q]['avgPointsAgainst']}
+           else if (all_teams['southwest'][q]['name'] == "houston rockets" ) { team_points["houston rockets APF"] = all_teams['southwest'][q]['avgPointsFor'], team_points["houston rockets APA"] = all_teams['southwest'][q]['avgPointsAgainst']}
+           else if (all_teams['southwest'][q]['name'] == "memphis grizzlies" ) { team_points["memphis grizzlies APF"] = all_teams['southwest'][q]['avgPointsFor'], team_points["memphis grizzlies APA"] = all_teams['southwest'][q]['avgPointsAgainst']}
+           else if (all_teams['southwest'][q]['name'] == "new orleans pelicans" ) { team_points["new orleans pelicans APF"] = all_teams['southwest'][q]['avgPointsFor'], team_points["new orleans pelicans APA"] = all_teams['southwest'][q]['avgPointsAgainst']}
+           else if (all_teams['southwest'][q]['name'] == "san antonio spurs" ) { team_points["san antonio spurs APF"] = all_teams['southwest'][q]['avgPointsFor'], team_points["san antonio spurs APA"] = all_teams['southwest'][q]['avgPointsAgainst']}
 
        }
    } 
+
+   console.log(team_points)
 
 
 
@@ -543,12 +574,14 @@ team_points = {}
 'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers',
 'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'];
 
-var average_points_for = [ team_points["atlanta hawks APF"],team_points["boston celtics APF"],team_points["brooklyn nets APF"],team_points["charlotte hornets APF"],team_points["chicago bulls APF"]
+var average_points_for = [team_points["atlanta hawks APF"],team_points["boston celtics APF"],team_points["brooklyn nets APF"],team_points["charlotte hornets APF"],team_points["chicago bulls APF"]
 ,team_points["cleveland cavaliers APF"],team_points["dallas mavericks APF"],team_points["denver nuggets APF"],team_points["detroit pistons APF"],team_points["golden state warriors APF"]
 ,team_points["houston rockets APF"],team_points["indiana pacers APF"],team_points["la angeles clippers APF"],team_points["los angeles lakers APF"],team_points["memphis grizzlies APF"]
 ,team_points["miami heat APF"],team_points["milwaukee bucks APF"],team_points["minnesota timberwolves APF"],team_points["new orleans pelicans APF"],team_points["new york knicks APF"]
 ,team_points["oklahoma city thunder APF"],team_points["orlando magic APF"],team_points["philadelphia 76ers APF"],team_points["phoenix suns APF"],team_points["portland trail blazers APF"]
 ,team_points["sacramento kings APF"],team_points["san antonio spurs APF"],team_points["toronto raptors APF"],team_points["utah jazz APF"],team_points["washington wizards APF"]];
+
+console.log(average_points_for)
 
 var average_points_against = [ team_points["atlanta hawks APA"],team_points["boston celtics APA"],team_points["brooklyn nets APA"],team_points["charlotte hornets APA"],team_points["chicago bulls APA"]
 ,team_points["cleveland cavaliers APA"],team_points["dallas mavericks APA"],team_points["denver nuggets APA"],team_points["detroit pistons APA"],team_points["golden state warriors APA"]
@@ -557,6 +590,7 @@ var average_points_against = [ team_points["atlanta hawks APA"],team_points["bos
 ,team_points["oklahoma city thunder APA"],team_points["orlando magic APA"],team_points["philadelphia 76ers APA"],team_points["phoenix suns APA"],team_points["portland trail blazers APA"]
 ,team_points["sacramento kings APA"],team_points["san antonio spurs APA"],team_points["toronto raptors APA"],team_points["utah jazz APA"],team_points["washington wizards APA"]];
 
+console.log(average_points_for)
 
 
 var trace1 = {
@@ -564,7 +598,7 @@ var trace1 = {
   x: average_points_for,
   y: team_name_pts,
   mode: 'markers',
-  name: 'Average Points For',
+  name: 'Points For',
   marker: {
     color: 'rgba(156, 165, 196, 0.95)',
     line: {
@@ -580,7 +614,7 @@ var trace2 = {
   x: average_points_against,
   y: team_name_pts,
   mode: 'markers',
-  name: 'Average Points Against',
+  name: 'Points Against',
   marker: {
     color: 'rgba(204, 204, 204, 0.95)',
     line: {
@@ -595,7 +629,7 @@ var trace2 = {
 var data = [trace1, trace2];
 
 var layout = {
-  title: 'Average Points for an against by team',
+  title: 'Average Points For/Against By Team',
   xaxis: {
     showgrid: false,
     showline: true,
@@ -611,14 +645,14 @@ var layout = {
       }
     },
     autotick: false,
-    dtick: 10,
+    dtick: 5,
     ticks: 'outside',
     tickcolor: 'rgb(102, 102, 102)'
   },
   margin: {
-    l: 140,
+    l: 150,
     r: 40,
-    b: 50,
+    b: -5,
     t: 80
   },
   legend: {
@@ -628,8 +662,9 @@ var layout = {
     yanchor: 'middle',
     xanchor: 'right'
   },
-  width: 600,
-  height: 600,
+  width: 800,
+  height: 800,
+  autosize: true,
   paper_bgcolor: 'rgb(254, 247, 234)',
   plot_bgcolor: 'rgb(254, 247, 234)',
   hovermode: 'closest'
@@ -638,7 +673,7 @@ var layout = {
 
 Plotly.newPlot('myDiv1', data, layout); 
 
-}
+
 
 
 
