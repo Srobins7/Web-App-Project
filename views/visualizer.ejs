@@ -145,7 +145,7 @@
             all_teams['southwest'][f]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
             f += 1
         }
-        //console.log(all_teams)
+        console.log(all_teams)
 
     }
 
@@ -228,6 +228,14 @@
     
     bar_radio.addEventListener("click", showBarChart)
     
+    /*var font_size = 12
+    if (window.innerWidth < 500) {
+        document.getElementById("myDiv").style.font = "10px";
+        if (window.innerwidth<200) {
+            document.getElementById("myDiv").style.font = "8px";
+        }
+
+    }*/
     
 
     //plotly annotated heatmap: https://plotly.com/javascript/heatmaps/
@@ -302,11 +310,11 @@
    
     for (var q = 0; q<5; q++) {
         for (var w = 0; w<5; w++) {
-            if (all_teams['atlantic'][q]['name'] == "boston celtics" ) { team_win["boston celtics"] = all_teams['atlantic'][q]['win_percent']}
-            else if (all_teams['atlantic'][q]['name'] == "brooklyn nets" ) {  team_win["brooklyn nets"] = all_teams['atlantic'][q]['win_percent']}
-            else if (all_teams['atlantic'][q]['name'] == "new york knicks" ) {  team_win["new york knicks"] = all_teams['atlantic'][q]['win_percent']}
-            else if (all_teams['atlantic'][q]['name'] == "philadelphia 76ers" ) {  team_win["philadelphia 76ers"] = all_teams['atlantic'][q]['win_percent']}
-            else if (all_teams['atlantic'][q]['name'] == "toronto raptors" ) {  team_win["toronto raptors"] = all_teams['atlantic'][q]['win_percent']}
+            if (all_teams['atlantic'][q]['name'] == "boston celtics" ) { team_win["Boston Celtics"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "brooklyn nets" ) {  team_win["Brooklyn Nets"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "new york knicks" ) {  team_win["New York Knicks"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "philadelphia 76ers" ) {  team_win["Philadelphia 76ers"] = all_teams['atlantic'][q]['win_percent']}
+            else if (all_teams['atlantic'][q]['name'] == "toronto raptors" ) {  team_win["Toronto Raptors"] = all_teams['atlantic'][q]['win_percent']}
             
         }
     } 
@@ -364,6 +372,7 @@
     
     console.log(team_win)
     
+    
 
     //sorting zValues Highest to smallest: https://www.codegrepper.com/code-examples/javascript/sort+array+greatest+to+least
     
@@ -377,7 +386,6 @@
     zValues[5].sort((a, b) => b-a)
 
     
-
 
     console.log(zValues)
 
@@ -405,12 +413,16 @@
         //default color scale
         //colorscale: colorscaleValue,
         colorscale:'YlGnBu',
-        showscale: true
+        showscale: true,
+        
+
+        
     }];
 
     var layout = {
         //title: 'Annotated Heatmap',
         annotations: [],
+        hovermode: false,
         xaxis: {
             ticks: '',
             side: 'top'
@@ -445,7 +457,8 @@
                 y: yValues[i],
                 //text: zValues[i][j],
                 //text: tValues[i][j],
-                text:getKeyByValue(team_win ,zValues[i][j]),
+                text: parseFloat(Number(Math.round(parseFloat(zValues[i][j]) + 'e2') + 'e-2').toFixed(2)) + "%",
+                hovertext: getKeyByValue(team_win,zValues[i][j]),
                 
 
                 font: {

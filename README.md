@@ -1,7 +1,7 @@
 # Web-App-Project - Design and Implementation Guide
 
 1. App Topic:
-   Display NBA stat:  Team schedule and win/loss record by division
+   Display NBA stats and provide dataviz of those stats.  App is meant to be user friendly and responsive to window sizing.
 
 2. Page Descriptions
 
@@ -23,7 +23,16 @@
 
 3. Comprehensive Setup/Implementation Guide:
 
-   A.  This app is meant to be run server side so will require a local installation of Node.js as well as NPM.  
+   Step 1: This app uses express.js and is meant to be run server side so will require a local installation of Node.js, NPM, and express.js among other functional NPM packages.
+
+   Step 2:
+
+   Step 3:
+
+   Step 4:
+
+   Step 5:
+  
 
   
   
