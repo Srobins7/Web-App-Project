@@ -2,9 +2,10 @@
 
 <p>Select a division and team</p>
 
-<form action="/stats/dashboard" method="POST">
+<form action="/stats/form" method="POST">
   <label>Conference:</label>
   <select name="Conference" id="conference-selector">
+    <option value="" disabled selected>Select a Conference</option>
     <option value=0 label="Eastern"></option>
     <option value=1 label="Western"></option>
   </select>
@@ -12,7 +13,7 @@
   <br>
   <label>Division:</label>
   <select name="Division" id="division-selector"> 
-
+    
   </select>
   <br>
 
@@ -108,15 +109,13 @@
             }
         ]
     }
-    // var divisionOptions = {};
-    // var teamOptions = {};
     console.log(conferenceOptions)
     console.log("GOT TO HERE")
     var conferenceSelector = document.getElementById('conference-selector')
     var divisionSelector = document.getElementById('division-selector')
     var teamSelector = document.getElementById('team-selector')
     var submitButton = document.getElementById('submit-request')
-    var conferenceChoice = 0
+    var conferenceChoice = {}
     var divisionOptions = {}
     var divisionChoice = {}
     var teamOptions = {}
