@@ -1,0 +1,82 @@
+{
+    "conferences":[
+        {
+            "id":"1",
+            "displayName":"East",
+            "divisions":[
+                {
+                    "id":"1",
+                    "displayName":"Atlantic",
+                    "teams":[
+                        {"id": "20", "displayName":"Philadelphia 76ers"},
+                        {"id": "17", "displayName":"Brooklyn Nets"},
+                        {"id": "18", "displayName":"New York Knicks"},
+                        {"id": "2", "displayName":"Boston Celtics"},
+                        {"id": "28", "displayName":"Toronto Raptors"}
+                    ]
+                },
+                {
+                    "id":"2",
+                    "displayName":"Central",
+                    "teams":[
+                        {"id": "15", "displayName":"Milwaukee Bucks"},
+                        {"id": "11", "displayName":"Indiana Pacers"},
+                        {"id": "4", "displayName":"Chicago Bulls"},
+                        {"id": "5", "displayName":"Cleveland Cavaliers"},
+                        {"id": "8", "displayName":"Detroit Pistons"}
+                    ]
+                },
+                {
+                    "id":"3",
+                    "displayName":"Southeast",
+                    "teams":[
+                        {"id": "1", "displayName":"Atlanta Hawks"},
+                        {"id": "14", "displayName":"Miami Heat"},
+                        {"id": "30", "displayName":"Charlotte Hornets"},
+                        {"id": "7", "displayName":"Washington Wizards"},
+                        {"id": "19", "displayName":"Orlando Magic"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id":"2",
+            "displayName":"West",
+            "divisions":[
+                {
+                    "id":"4",
+                    "displayName":"Northwest",
+                    "teams":[
+                        {"id": "26", "displayName":"Utah Jass"},
+                        {"id": "7", "displayName":"Denver Nuggets"},
+                        {"id": "22", "displayName":"Portland Trail Blazers"},
+                        {"id": "25", "displayName":"Oklahoma City Thunder"},
+                        {"id": "16", "displayName":"Minnesota Tiimberwolves"}
+                    ]
+                },
+                {
+                    "id":"5",
+                    "displayName":"Pacific",
+                    "teams":[
+                        {"id": "21", "displayName":"Phoenix Suns"},
+                        {"id": "12", "displayName":"LA Clippers"},
+                        {"id": "13", "displayName":"LA Lakers"},
+                        {"id": "9", "displayName":"Golden State Warriors"},
+                        {"id": "23", "displayName":"Sacramento Kings"}
+                    ]
+                },
+                {
+                    "id":"6",
+                    "displayName":"Southwest",
+                    "teams":[
+                        {"id": "6", "displayName":"Dallas Mavericks"},
+                        {"id": "29", "displayName":"Memphis Grizzlies"},
+                        {"id": "24", "displayName":"San Antonio Spurs"},
+                        {"id": "3", "displayName":"New Orleans Pelicans"},
+                        {"id": "10", "displayName":"Houston Rockets"}
+                    ]
+                }
+            ]
+        }
+    ]
+}
