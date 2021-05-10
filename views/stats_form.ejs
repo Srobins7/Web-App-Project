@@ -129,11 +129,13 @@
         divisionChoice = {}
         conferenceChoice = this.value
         divisionOptions = conferenceOptions.conferences[conferenceChoice].divisions
+
         // Referenced Techidelight.com to dynamically create dropdown options: 
         // https://www.techiedelight.com/dynamically-create-drop-down-list-javascript/
         // remove existing division options from the dropdown
         console.log("Division Selector Before: ", divisionSelector)
         console.log("count: ", divisionSelector.options)
+
         while ( divisionSelector.firstChild ) {
             divisionSelector.removeChild(divisionSelector.firstChild)
         }
@@ -154,6 +156,7 @@
     }
     
     conferenceSelector.onchange = selectConference
+
     function selectDivision() {
         submitButton.disabled = true
         teamChoice = {}
@@ -161,6 +164,7 @@
         teamOptions = conferenceOptions.conferences[conferenceChoice].divisions[divisionChoice].teams
         console.log("divisionChoice = ", divisionChoice)
         console.log("teamOptions = ", teamOptions)
+
         // Referenced Techidelight.com to dynamically create dropdown options: 
         // https://www.techiedelight.com/dynamically-create-drop-down-list-javascript/
         // Reset loopindex to create values
@@ -180,11 +184,13 @@
         }
         console.log("Team Choice: ", teamChoice)
     }
+
     function selectTeam() {
         submitButton.disabled = false
         teamChoice = this.value
         console.log("Team Choice Index: ", teamChoice)
     }
+
     conferenceSelector.onchange = selectConference
     divisionSelector.onchange = selectDivision
     teamSelector.onchange = selectTeam
