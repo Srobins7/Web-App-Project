@@ -84,14 +84,16 @@
 
     //regex for getting rid of hypthens: https://www.encodedna.com/javascript/replace-hyphen-in-a-string-with-space-in-javascript.htm
     //For rounding to 2 decimal places: https://stackoverflow.com/questions/15762768/javascript-math-round-to-two-decimal-places
-
+    /*Math.random()*0.0000000000001 added to the end of win percent variables to avoid highly unlikely ties (causes problems with rankings in heatmap).
+      random number added is so small that it does not materially affect win percent. 
+    */
     //Loop to put data into all_teams object from router data
     for (var t = 0; t < 30; t++) {
 
         //Atlantic
         if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '20' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '18' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '2' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '28') {
             all_teams['atlantic'][a]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['atlantic'][a]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
+            all_teams['atlantic'][a]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100 + Math.random()*0.0000000000001)
             all_teams['atlantic'][a]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['atlantic'][a]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['atlantic'][a]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -100,7 +102,7 @@
         //Central
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '15' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '11' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '4' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '5' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '8') {
             all_teams['central'][b]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['central'][b]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
+            all_teams['central'][b]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100+ Math.random()*0.0000000000001)
             all_teams['central'][b]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['central'][b]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['central'][b]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -109,7 +111,7 @@
         //Southeast
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '1' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '14' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '30' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '27' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '19') {
             all_teams['southeast'][c]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['southeast'][c]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
+            all_teams['southeast'][c]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100+ Math.random()*0.0000000000001)
             all_teams['southeast'][c]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southeast'][c]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southeast'][c]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -119,7 +121,7 @@
         //Northwest
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '26' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '7' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '22' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '25' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '16') {
             all_teams['northwest'][d]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['northwest'][d]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
+            all_teams['northwest'][d]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100+ Math.random()*0.0000000000001)
             all_teams['northwest'][d]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['northwest'][d]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['northwest'][d]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -129,7 +131,7 @@
         //Pacific
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '21' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '12' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '13' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '9' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '23') {
             all_teams['pacific'][e]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['pacific'][e]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
+            all_teams['pacific'][e]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100+ Math.random()*0.0000000000001)
             all_teams['pacific'][e]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['pacific'][e]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['pacific'][e]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -139,7 +141,7 @@
         //Southwest
         else {
             all_teams['southwest'][f]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['southwest'][f]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
+            all_teams['southwest'][f]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100+ Math.random()*0.0000000000001)
             all_teams['southwest'][f]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southwest'][f]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southwest'][f]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
