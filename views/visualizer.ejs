@@ -4,7 +4,7 @@
 <p id= "chart_describe">Compare across divisions. </p>
 
 <!-- Twitter bootstrap radios: https://getbootstrap.com/docs/5.0/forms/checks-radios/ -->
-
+<div style= "margin-top:2em;"></div>
 <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
 <label class="btn btn-secondary" for="option1">Win Percent Heatmap</label>
 
@@ -13,7 +13,7 @@
 
 <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" >
 <label class="btn btn-secondary" for="option3">Streak Chart</label>
-
+</div>
 
 <div id="myDiv" height="700px" style= "margin-bottom: -2em;">
 </div>
@@ -91,7 +91,7 @@
         //Atlantic
         if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '20' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '18' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '2' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '28') {
             all_teams['atlantic'][a]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['atlantic'][a]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['atlantic'][a]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
             all_teams['atlantic'][a]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['atlantic'][a]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['atlantic'][a]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -100,7 +100,7 @@
         //Central
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '15' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '11' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '4' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '5' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '8') {
             all_teams['central'][b]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['central'][b]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['central'][b]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
             all_teams['central'][b]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['central'][b]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['central'][b]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -109,7 +109,7 @@
         //Southeast
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '1' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '14' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '30' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '27' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '19') {
             all_teams['southeast'][c]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['southeast'][c]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['southeast'][c]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
             all_teams['southeast'][c]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southeast'][c]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southeast'][c]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -119,7 +119,7 @@
         //Northwest
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '26' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '7' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '22' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '25' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '16') {
             all_teams['northwest'][d]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['northwest'][d]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['northwest'][d]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
             all_teams['northwest'][d]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['northwest'][d]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['northwest'][d]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -129,7 +129,7 @@
         //Pacific
         else if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '21' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '12' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '13' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '9' || tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '23') {
             all_teams['pacific'][e]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['pacific'][e]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['pacific'][e]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
             all_teams['pacific'][e]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['pacific'][e]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['pacific'][e]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -139,7 +139,7 @@
         //Southwest
         else {
             all_teams['southwest'][f]['name'] = tsd[0]['leagues'][0]['teams'][t]['team']['slug'].replace(/-/g, ' ')
-            all_teams['southwest'][f]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4))
+            all_teams['southwest'][f]['win_percent'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][3]['value']) + 'e4') + 'e-4').toFixed(4)*100)
             all_teams['southwest'][f]['avgPointsFor'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][11]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southwest'][f]['avgPointsAgainst'] = parseFloat(Number(Math.round(parseFloat(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][12]['value']) + 'e4') + 'e-4').toFixed(4))
             all_teams['southwest'][f]['streak'] = parseInt(tsd[0]['leagues'][0]['teams'][t]['team']['record']["items"][0]['stats'][15]['value'])
@@ -149,39 +149,7 @@
 
     }
 
-    /*
-    for (var t = 0; t < 31; t++) {
-        if (tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '20'|| tsd[0]['leagues'][0]['teams'][t]['team']['id'] == '17' ) {
-            console.log(tsd[0]['leagues'][0]['teams'][t]['team']['id'])
-            a = a + 1
-        }
-    } */
-    //tests for location of different variables
-    /*
-   var team_name = tsd[0]['leagues'][0]['teams'][0]['team']['slug']
-   console.log(team_name)
-   var test = tsd[0]['leagues'][0]['teams'][0]['team']['record']["items"][0]['stats'][3]['value']
-   console.log(test)
-   var test1 = tsd[0]['leagues'][0]['teams'][0]['team']['record']["items"][0]['stats'][16]['value']
-   console.log(test1)
-   var team_name1 = tsd[0]['leagues'][0]['teams'][1]['team']['slug']
-   console.log(team_name1)
-   var test2 = tsd[0]['leagues'][0]['teams'][1]['team']['record']["items"][0]['stats'][16]['value']
-   console.log(test2)
-   var test3 = tsd[0]['leagues'][0]['teams']
-   console.log(test3)
-   var test7 = tsd[0]['leagues'][0]['teams'][1]['team']['record']["items"][0]['stats']
-   console.log(test7)
-   
-   var test5 = tsd[0]['leagues'][0]['teams'][0]['team']['id']
-       console.log("id is " + test5)
-   
-   for (var t = 0; t < 31; t++) {
-       var test4 = tsd[0]['leagues'][0]['teams'][t]['team']['id']
-       console.log("id is " + test4)
-   }
-   var dailyPrices = Object.values(tsd)
-   var closingPrices = dailyPrices.map(obj => obj["5. adjusted close"]) */
+
 
    //toggling different charts
     var heat_radio = document.getElementById("option1")
@@ -202,13 +170,15 @@
             console.log("heatmap")
             if (display_div1.style.display === "none") {
                 display_div1.style.display = "block";
+                display_div2.style.display = "none";
+                display_div3.style.display = "none";
 
             } else {
                 display_div1.style.display = "none";
             }
             
             chart_name.innerText = "Win Percent Heatmap"
-            chart_describe.innerText = ""
+            chart_describe.innerText = "Each block in the heatmap represents the win percent of a an NBA team. Teams are organized by division and rank within division."
 
             console.log(document.getElementsByTagName('div')[5].id)
             console.log(chart_name)
@@ -219,13 +189,15 @@
             
             if (display_div2.style.display === "none") {
                 display_div2.style.display = "block";
+                display_div1.style.display = "none";
+                display_div3.style.display = "none";
 
             } else {
                 display_div2.style.display = "none";
             }
 
             chart_name.innerText = "Average Score Dot Plot"
-            chart_describe.innerText = ""
+            chart_describe.innerText = "Blue dots are average points for and grey dots are average points against. These are graphed by team using dot plot to help you visualize average scoring margin."
             console.log(document.getElementsByTagName('div')[6].id)
             console.log(chart_name)
             console.log(chart_describe)
@@ -236,13 +208,15 @@
             
             if (display_div3.style.display === "none") {
                 display_div3.style.display = "block";
+                display_div1.style.display = "none";
+                display_div2.style.display = "none";
 
             } else {
                 display_div3.style.display = "none";
             }
 
             chart_name.innerText = "Streak Chart"
-            chart_describe.innerText = ""
+            chart_describe.innerText = "A teams current streak is graphed positive for wins and negative for losses. Only teams with a current streak are shown on the graph."
             console.log(document.getElementsByTagName('div')[5].id)
             console.log(chart_name)
             console.log(chart_describe)
