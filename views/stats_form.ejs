@@ -2,124 +2,191 @@
 
 <p>Select a division and team</p>
 
-<form action="/stats/dashboard" method="POST">
-
-<!--
-    <label>Stock Symbol:</label>
-    <input type="text" name="symbol" placeholder="MSFT" value="MSFT">
-    <br>
-
--->
-
-<div id="my-radios-container">
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="my-radio-preference" id="my-radio-a" value="A">
-      <label class="form-check-label" for="my-radio-a">
-        Eastern Conference
-      </label>
-    </div>
-    <div class="mb-3 form-check">
-      <input class="form-check-input" type="radio" name="my-radio-preference" id="my-radio-b" value="B" checked>
-      <label class="form-check-label" for="my-radio-b">
-        Western Conference
-      </label>
-    </div>
-  </div>
+<form action="/stats/form" method="POST">
+  <label>Conference:</label>
+  <select name="Conference" id="conference-selector">
+    <option value="" disabled selected>Select a Conference</option>
+    <option value=0 label="Eastern"></option>
+    <option value=1 label="Western"></option>
+  </select>
   
-
-<label>Division:</label>
-  <select name="division">
-      <option value="high" id= "division_option1"></option>
-      <option value="medium" id= "division_option2"></option>
-      <option value="low" id= "division_option3"></option>
+  <br>
+  <label>Division:</label>
+  <select name="Division" id="division-selector"> 
+    
   </select>
   <br>
 
+  <label>Team: </label>
+  <select name="Team" id="team-selector">  
 
-    <button>Submit</button>
+  </select>
+  <br>
+  <button disabled id="submit-request">Submit</button>
 
 </form>
 
 <script type="text/javascript">
-
-    var division_option1 = ""
-    var division_option2 = ""
-    var division_option3 = ""
-    var division_choice= document.getElementById("division")
-    var team_option1 = {}
-    var team_option2 = {}
-    var team_option3 = {}
-
-        function division_selector() {
-            console.log("Conference Choice", conference_choice.value)
-            if ( conference_choice.value = "Eastern Conference") {
-                division_option1 = "Atlantic"
-                division_option2 = "Southeast"
-                division_option3 = "Central "
-
-            } else {
-                division_option1 = "Northwest"
-                division_option2 = "Pacific"
-                division_option3 = "Southwest"
-
+    var conferenceOptions = {
+        "conferences":[
+            {
+                "id":"1",
+                "displayName":"East",
+                "divisions":[
+                    {
+                        "id":"1",
+                        "displayName":"Atlantic",
+                        "teams":[
+                            {"id": "20", "displayName":"Philadelphia 76ers"},
+                            {"id": "17", "displayName":"Brooklyn Nets"},
+                            {"id": "18", "displayName":"New York Knicks"},
+                            {"id": "2", "displayName":"Boston Celtics"},
+                            {"id": "28", "displayName":"Toronto Raptors"}
+                        ]
+                    },
+                    {
+                        "id":"2",
+                        "displayName":"Central",
+                        "teams":[
+                            {"id": "15", "displayName":"Milwaukee Bucks"},
+                            {"id": "11", "displayName":"Indiana Pacers"},
+                            {"id": "4", "displayName":"Chicago Bulls"},
+                            {"id": "5", "displayName":"Cleveland Cavaliers"},
+                            {"id": "8", "displayName":"Detroit Pistons"}
+                        ]
+                    },
+                    {
+                        "id":"3",
+                        "displayName":"Southeast",
+                        "teams":[
+                            {"id": "1", "displayName":"Atlanta Hawks"},
+                            {"id": "14", "displayName":"Miami Heat"},
+                            {"id": "30", "displayName":"Charlotte Hornets"},
+                            {"id": "7", "displayName":"Washington Wizards"},
+                            {"id": "19", "displayName":"Orlando Magic"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "id":"2",
+                "displayName":"West",
+                "divisions":[
+                    {
+                        "id":"4",
+                        "displayName":"Northwest",
+                        "teams":[
+                            {"id": "26", "displayName":"Utah Jass"},
+                            {"id": "7", "displayName":"Denver Nuggets"},
+                            {"id": "22", "displayName":"Portland Trail Blazers"},
+                            {"id": "25", "displayName":"Oklahoma City Thunder"},
+                            {"id": "16", "displayName":"Minnesota Tiimberwolves"}
+                        ]
+                    },
+                    {
+                        "id":"5",
+                        "displayName":"Pacific",
+                        "teams":[
+                            {"id": "21", "displayName":"Phoenix Suns"},
+                            {"id": "12", "displayName":"LA Clippers"},
+                            {"id": "13", "displayName":"LA Lakers"},
+                            {"id": "9", "displayName":"Golden State Warriors"},
+                            {"id": "23", "displayName":"Sacramento Kings"}
+                        ]
+                    },
+                    {
+                        "id":"6",
+                        "displayName":"Southwest",
+                        "teams":[
+                            {"id": "6", "displayName":"Dallas Mavericks"},
+                            {"id": "29", "displayName":"Memphis Grizzlies"},
+                            {"id": "24", "displayName":"San Antonio Spurs"},
+                            {"id": "3", "displayName":"New Orleans Pelicans"},
+                            {"id": "10", "displayName":"Houston Rockets"}
+                        ]
+                    }
+                ]
             }
-            console.log("Divisions in this conference", division_option1.value, division_option2.value, division_option3.value)
-           
-           
-        }
-
-        var conference_choice = document.getElementByName("my-radio-preference").forEach(function(e) {
-
-            e.addEventListener("click", divisionselector())
-        });
-
-        document.getElementById("division1").innerHTML = division_option1;
-        document.getElementById("division2").innerHTML = division_option2;
-        document.getElementById("division3").innerHTML = division_option3;
-
-        function team_selector() {
-            console.log("Division Choice:", division_choice.value)
-            if ( division_choice.value = "Atlantic") {
-                team_option1["Atlanta Hawks"] = 1
-                team_option2[""] = 2
-                team_option3[""] = 3
-
-            } else if (division_choice.value = "Southeast") {
-                team_option1[""] = 1
-                team_option2[""] = 2
-                team_option3[""] = 3
-
-            } else if (division_choice.value = "Central") {
-                team_option1[""] = 1
-                team_option2[""] = 2
-                team_option3[""] = 3
-
-            } else if (division_choice.value = "Northwest") {
-                team_option1[""] = 1
-                team_option2[""] = 2
-                team_option3[""] = 3
-
-            } else if (division_choice.value = "Pacific") {
-                team_option1[""] = 1
-                team_option2[""] = 2
-                team_option3[""] = 3
-
-            } else {
-                team_option1[""] = 1
-                team_option2[""] = 2
-                team_option3[""] = 3
-
-            }
-            console.log("Team options in this division are", object.key(team_option1), object.key(team_option2), object.key(team_option3))
-            
-        }
-
-        division_choice.addEventListener("click", team_selector)
-
-        document.getElementById("team_option1").innerHTML = object.key(team_option1);
-        document.getElementById("team_option2").innerHTML = object.key(team_option2);
-        document.getElementById("team_option3").innerHTML = object.key(team_option3);
-
+        ]
+    }
+    console.log(conferenceOptions)
+    console.log("GOT TO HERE")
+    var conferenceSelector = document.getElementById('conference-selector')
+    var divisionSelector = document.getElementById('division-selector')
+    var teamSelector = document.getElementById('team-selector')
+    var submitButton = document.getElementById('submit-request')
+    var conferenceChoice = {}
+    var divisionOptions = {}
+    var divisionChoice = {}
+    var teamOptions = {}
+    var teamChoice = {}
     
+    function selectConference() {
+        submitButton.disabled = true
+        teamOptions = {}
+        teamChoice = {}
+        divisionOptions = {}
+        divisionChoice = {}
+        conferenceChoice = this.value
+        divisionOptions = conferenceOptions.conferences[conferenceChoice].divisions
+        // Referenced Techidelight.com to dynamically create dropdown options: 
+        // https://www.techiedelight.com/dynamically-create-drop-down-list-javascript/
+        // remove existing division options from the dropdown
+        console.log("Division Selector Before: ", divisionSelector)
+        console.log("count: ", divisionSelector.options)
+        while ( divisionSelector.firstChild ) {
+            divisionSelector.removeChild(divisionSelector.firstChild)
+        }
+        while ( teamSelector.firstChild ) {
+            teamSelector.removeChild(teamSelector.firstChild)
+        }
+        console.log("Division Selector After: ", divisionSelector)
+        console.log(teamSelector)
+        var loopIndex = 0
+        for ( const divisionOption of divisionOptions ) {
+            var option = document.createElement("option")
+            option.value = loopIndex
+            loopIndex += 1
+            console.log("Created option for: ", divisionOption.displayName)
+            option.text = divisionOption.displayName
+            divisionSelector.appendChild(option)
+        }
+    }
+    
+    conferenceSelector.onchange = selectConference
+    function selectDivision() {
+        submitButton.disabled = true
+        teamChoice = {}
+        divisionChoice = this.value
+        teamOptions = conferenceOptions.conferences[conferenceChoice].divisions[divisionChoice].teams
+        console.log("divisionChoice = ", divisionChoice)
+        console.log("teamOptions = ", teamOptions)
+        // Referenced Techidelight.com to dynamically create dropdown options: 
+        // https://www.techiedelight.com/dynamically-create-drop-down-list-javascript/
+        // Reset loopindex to create values
+        var loopIndex = 0
+        // remove existing division options from the dropdown
+        while ( teamSelector.firstChild ) {
+            teamSelector.removeChild(teamSelector.firstChild)
+        }
+        
+        for ( const teamOption of teamOptions ) {
+            var option = document.createElement("option")
+            option.value = conferenceOptions.conferences[conferenceChoice].divisions[divisionChoice].teams[loopIndex].id
+            loopIndex += 1
+            console.log("Created option for: ", teamOption.displayName)
+            option.text = teamOption.displayName
+            teamSelector.appendChild(option)
+        }
+        console.log("Team Choice: ", teamChoice)
+    }
+    function selectTeam() {
+        submitButton.disabled = false
+        teamChoice = this.value
+        console.log("Team Choice Index: ", teamChoice)
+    }
+    conferenceSelector.onchange = selectConference
+    divisionSelector.onchange = selectDivision
+    teamSelector.onchange = selectTeam
     
  </script>
