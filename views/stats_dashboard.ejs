@@ -9,7 +9,7 @@ Record: <%= record %>
     <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">Date</th>
+            <th scope="col">Standing</th>
             <th scope="col">Home</th>
             <th scope="col">Away</th>
             <th scope="col">Date</th>
@@ -42,9 +42,8 @@ Record: <%= record %>
 <script type="text/javascript">
 var team_data = JSON.parse('<%- data %>')
 console.log(team_data)
-
 var tsd = team_data["team"]
-var location = object.values(tsd['location'])
+
 
 document.getElementById("test").innerHTML = location;
 

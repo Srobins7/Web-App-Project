@@ -8,8 +8,7 @@ var router = express.Router();
 
 router.get('/form', function(req, res, next) {
   console.log("FORM DATA", req.body)
-  res.render("stats_form")
-  console.log("FORM DATA", req.body)
+  res.render("stats_form");
   // var requestUrl = `http://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/${team}`
   // var team = req.body.team || "OOPS"
   // console.log("TEAM ID", team)
@@ -40,7 +39,7 @@ router.get('/form', function(req, res, next) {
 
 router.post('/dashboard', function(req, res, next) {
   console.log("FORM DATA", req.body)
-  var team = req.body.team || "OOPS"
+  var team = req.body.Team || "OOPS"
   console.log("TEAM ID", team)
   var requestUrl = `http://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/${team}` 
   console.log("REQUEST URL", requestUrl)
