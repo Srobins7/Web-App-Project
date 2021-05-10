@@ -679,7 +679,7 @@ Plotly.newPlot('myDiv1', data, layout);
 
 
 
-/*plotly bar chart: https://plotly.com/javascript/bar-charts/
+//plotly bar chart: https://plotly.com/javascript/bar-charts/
 
     //setting up streak object
 
@@ -687,86 +687,168 @@ Plotly.newPlot('myDiv1', data, layout);
    
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {
-           if (all_teams['atlantic'][q]['name'] == "boston celtics" ) { team_win["boston celtics"] = all_teams['atlantic'][q]['win_percent']}
-           else if (all_teams['atlantic'][q]['name'] == "brooklyn nets" ) {  team_win["brooklyn nets"] = all_teams['atlantic'][q]['win_percent']}
-           else if (all_teams['atlantic'][q]['name'] == "new york knicks" ) {  team_win["new york knicks"] = all_teams['atlantic'][q]['win_percent']}
-           else if (all_teams['atlantic'][q]['name'] == "philadelphia 76ers" ) {  team_win["philadelphia 76ers"] = all_teams['atlantic'][q]['win_percent']}
-           else if (all_teams['atlantic'][q]['name'] == "toronto raptors" ) {  team_win["toronto raptors"] = all_teams['atlantic'][q]['win_percent']}
+           if (all_teams['atlantic'][q]['name'] == "boston celtics" ) { team_streak["boston celtics"] = all_teams['atlantic'][q]['streak']}
+           else if (all_teams['atlantic'][q]['name'] == "brooklyn nets" ) {  team_streak["brooklyn nets"] = all_teams['atlantic'][q]['streak']}
+           else if (all_teams['atlantic'][q]['name'] == "new york knicks" ) {  team_streak["new york knicks"] = all_teams['atlantic'][q]['streak']}
+           else if (all_teams['atlantic'][q]['name'] == "philadelphia 76ers" ) {  team_streak["philadelphia 76ers"] = all_teams['atlantic'][q]['streak']}
+           else if (all_teams['atlantic'][q]['name'] == "toronto raptors" ) {  team_streak["toronto raptors"] = all_teams['atlantic'][q]['streak']}
            
        }
    } 
    
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {        
-           if (all_teams['central'][q]['name'] == "chicago bulls" ) {  team_win["Chicago Bulls"] = all_teams['central'][q]['win_percent']}
-           else if (all_teams['central'][q]['name'] == "cleveland cavaliers" ) {  team_win["Cleveland Cavaliers"] = all_teams['central'][q]['win_percent']}
-           else if (all_teams['central'][q]['name'] == "detroit pistons" ) {  team_win["Detroit Pistons"] = all_teams['central'][q]['win_percent']}
-           else if (all_teams['central'][q]['name'] == "indiana pacers" ) { team_win["Indiana Pacers"] = all_teams['central'][q]['win_percent']}
-           else if (all_teams['central'][q]['name'] == "milwaukee bucks" ) { team_win["Milwaukee Bucks"] = all_teams['central'][q]['win_percent']}
+           if (all_teams['central'][q]['name'] == "chicago bulls" ) {  team_streak["chicago bulls"] = all_teams['central'][q]['streak']}
+           else if (all_teams['central'][q]['name'] == "cleveland cavaliers" ) {  team_streak["cleveland cavaliers"] = all_teams['central'][q]['streak']}
+           else if (all_teams['central'][q]['name'] == "detroit pistons" ) {  team_streak["detroit pistons"] = all_teams['central'][q]['streak']}
+           else if (all_teams['central'][q]['name'] == "indiana pacers" ) { team_streak["indiana pacers"] = all_teams['central'][q]['streak']}
+           else if (all_teams['central'][q]['name'] == "milwaukee bucks" ) { team_streak["milwaukee bucks"] = all_teams['central'][q]['streak']}
        }
    }                
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {            
-           if (all_teams['southeast'][q]['name'] == "atlanta hawks" ) {  team_win["Atlanta Hawks"] = all_teams['southeast'][q]['win_percent']}
-           else if (all_teams['southeast'][q]['name'] == "charlotte hornets" ) {  team_win["Charlotte Hornets"] = all_teams['southeast'][q]['win_percent']}
-           else if (all_teams['southeast'][q]['name'] == "miami heat" ) {  team_win["Miami Heat"] = all_teams['southeast'][q]['win_percent']}
-           else if (all_teams['southeast'][q]['name'] == "orlando magic" ) {  team_win["Orlando Magic"] = all_teams['southeast'][q]['win_percent']}  
-           else if (all_teams['southeast'][q]['name'] == "washington wizards" ) {  team_win["Washington Wizards"] = all_teams['southeast'][q]['win_percent']}
+           if (all_teams['southeast'][q]['name'] == "atlanta hawks" ) {  team_streak["atlanta hawks"] = all_teams['southeast'][q]['streak']}
+           else if (all_teams['southeast'][q]['name'] == "charlotte hornets" ) {  team_streak["charlotte hornets"] = all_teams['southeast'][q]['streak']}
+           else if (all_teams['southeast'][q]['name'] == "miami heat" ) {  team_streak["miami heat"] = all_teams['southeast'][q]['streak']}
+           else if (all_teams['southeast'][q]['name'] == "orlando magic" ) {  team_streak["orlando magic"] = all_teams['southeast'][q]['streak']}  
+           else if (all_teams['southeast'][q]['name'] == "washington wizards" ) {  team_streak["washington wizards"] = all_teams['southeast'][q]['streak']}
        }
    } 
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {               
-           if (all_teams['northwest'][q]['name'] == "denver nuggets" ) {  team_win["Denver Nuggets"] = all_teams['northwest'][q]['win_percent']}
-           else if (all_teams['northwest'][q]['name'] == "minnesota timberwolves" ) {  team_win["Minnesota Timberwolves"] = all_teams['northwest'][q]['win_percent']}
-           else if (all_teams['northwest'][q]['name'] == "oklahoma city thunder" ) {  team_win["Oklahoma City Thunder"] = all_teams['northwest'][q]['win_percent']}
-           else if (all_teams['northwest'][q]['name'] == "portland trail blazers" ) {  team_win["Portland Trail Blazers"] = all_teams['northwest'][q]['win_percent']}
-           else if (all_teams['northwest'][q]['name'] == "utah jazz" ) {  team_win["Utah Jazz"] = all_teams['northwest'][q]['win_percent']}
+           if (all_teams['northwest'][q]['name'] == "denver nuggets" ) {  team_streak["denver nuggets"] = all_teams['northwest'][q]['streak']}
+           else if (all_teams['northwest'][q]['name'] == "minnesota timberwolves" ) {  team_streak["minnesota timberwolves"] = all_teams['northwest'][q]['streak']}
+           else if (all_teams['northwest'][q]['name'] == "oklahoma city thunder" ) {  team_streak["oklahoma city thunder"] = all_teams['northwest'][q]['streak']}
+           else if (all_teams['northwest'][q]['name'] == "portland trail blazers" ) {  team_streak["portland trail blazers"] = all_teams['northwest'][q]['streak']}
+           else if (all_teams['northwest'][q]['name'] == "utah jazz" ) {  team_streak["utah Jazz"] = all_teams['northwest'][q]['streak']}
            
        }
    }   
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {             
-           if (all_teams['pacific'][q]['name'] == "golden state warriors" ) { team_win["Golden State Warriors"] = all_teams['pacific'][q]['win_percent']}
-           else if (all_teams['pacific'][q]['name'] == "la clippers" ) {  team_win["LA Clippers"] = all_teams['pacific'][q]['win_percent']}
-           else if (all_teams['pacific'][q]['name'] == "los angeles lakers" ) {  team_win["Los Angeles Lakers"] = all_teams['pacific'][q]['win_percent']}
-           else if (all_teams['pacific'][q]['name'] == "phoenix suns" ) {  team_win["Phoenix Suns"] = all_teams['pacific'][q]['win_percent']}
-           else if (all_teams['pacific'][q]['name'] == "sacramento kings" ) {  team_win["Sacramento Kings"] = all_teams['pacific'][q]['win_percent']}
+           if (all_teams['pacific'][q]['name'] == "golden state warriors" ) { team_streak["golden state warriors"] = all_teams['pacific'][q]['streak']}
+           else if (all_teams['pacific'][q]['name'] == "la clippers" ) {  team_streak["la clippers"] = all_teams['pacific'][q]['streak']}
+           else if (all_teams['pacific'][q]['name'] == "los angeles lakers" ) {  team_streak["los angeles lakers"] = all_teams['pacific'][q]['streak']}
+           else if (all_teams['pacific'][q]['name'] == "phoenix suns" ) {  team_streak["phoenix suns"] = all_teams['pacific'][q]['streak']}
+           else if (all_teams['pacific'][q]['name'] == "sacramento kings" ) {  team_streak["sacramento kings"] = all_teams['pacific'][q]['streak']}
            
        }
    }    
    for (var q = 0; q<5; q++) {
        for (var w = 0; w<5; w++) {            
-           if (all_teams['southwest'][q]['name'] == "dallas mavericks" ) {  team_win["Dallas Mavericks"] = all_teams['southwest'][q]['win_percent']}
-           else if (all_teams['southwest'][q]['name'] == "houston rockets" ) {  team_win["Houston Rockets"] = all_teams['southwest'][q]['win_percent']}
-           else if (all_teams['southwest'][q]['name'] == "memphis grizzlies" ) {  team_win["Memphis Grizzlies"] = all_teams['southwest'][q]['win_percent']}
-           else if (all_teams['southwest'][q]['name'] == "new orleans pelicans" ) {  team_win["New Orleans Pelicans"] = all_teams['southwest'][q]['win_percent']}
-           else if (all_teams['southwest'][q]['name'] == "san antonio spurs" ) {  team_win["San Antonio Spurs"] = all_teams['southwest'][q]['win_percent']}
+           if (all_teams['southwest'][q]['name'] == "dallas mavericks" ) {  team_win["dallas mavericks"] = all_teams['southwest'][q]['streak']}
+           else if (all_teams['southwest'][q]['name'] == "houston rockets" ) {  team_win["houston rockets"] = all_teams['southwest'][q]['streak']}
+           else if (all_teams['southwest'][q]['name'] == "memphis grizzlies" ) {  team_win["memphis grizzlies"] = all_teams['southwest'][q]['streak']}
+           else if (all_teams['southwest'][q]['name'] == "new orleans pelicans" ) {  team_win["new orleans pelicans"] = all_teams['southwest'][q]['streak']}
+           else if (all_teams['southwest'][q]['name'] == "san antonio spurs" ) {  team_win["san antonio spurs"] = all_teams['southwest'][q]['streak']}
 
        }
-   }       
+   }  
+   
+   var y_streak = [team_streak["atlanta hawks"],team_streak["boston celtics"],team_streak["brooklyn nets"],team_streak["charlotte hornets"],team_streak["chicago bulls"]
+,team_streak["cleveland cavaliers"],team_streak["dallas mavericks"],team_streak["denver nuggets"],team_streak["detroit pistons"],team_streak["golden state warriors"]
+,team_streak["houston rockets"],team_streak["indiana pacers"],team_streak["la angeles clippers"],team_streak["los angeles lakers"],team_streak["memphis grizzlies"]
+,team_streak["miami heat"],team_streak["milwaukee bucks"],team_streak["minnesota timberwolves"],team_streak["new orleans pelicans"],team_streak["new york knicks"]
+,team_streak["oklahoma city thunder"],team_streak["orlando magic"],team_streak["philadelphia 76ers"],team_streak["phoenix suns"],team_streak["portland trail blazers"]
+,team_streak["sacramento kings"],team_streak["san antonio spurs"],team_streak["toronto raptors"],team_streak["utah jazz"],team_streak["washington wizards"]];
 
+console.log(y_streak)
+/*
+   for (var m = 0; m<30; m++) {
+          
+          y_streak[m]= all_teams['atlantic'][m]['streak']
+          y_rank2[m]= all_teams['central'][m]['streak']
+          y_rank3[m][m1]= all_teams['southeast'][m]['streak']
+          y_rank4[m][m1]= all_teams['northwest'][m]['streak']
+          y_rank5[m][m1]= all_teams['pacific'][m]['streak']
+          
+               
+    }
 
+    console.log(y_rank1)
+    console.log(y_rank2)
+    console.log(y_rank3)
+    console.log(y_rank4)
+    console.log(y_rank5)
 
-var trace1 = {
-  x: ['giraffes', 'orangutans', 'monkeys'],
-  y: [20, 14, 23],
-  name: 'SF Zoo',
-  type: 'bar'
+    */
+
+   var trace1_bar = {
+  x: ['Atlanta Hawks', 'Boston Celtics', 'Brooklyn Nets', 'Charlotte Hornets', 'Chicago Bulls', 
+'Cleveland Cavaliers', 'Dallas Mavericks', 'Denver Nuggets', 'Detroit Pistons', 'Golden State Warriors',
+'Houston Rockets', 'Indiana Pacers', 'Los Angeles Clippers', 'Los Angeles Lakers', 'Memphis Grizzlies',
+'Miami Heat', 'Milwaukee Bucks', 'Minnesota Timberwolves', 'New Orleans Pelicans', 'New York Knicks',
+'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers',
+'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'],
+  y: y_streak,
+  //name: 'Rank 1',
+  type: 'bar',
+  width: [0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,]
 };
 
-var trace2 = {
-  x: ['giraffes', 'orangutans', 'monkeys'],
+/*
+var trace2_bar = {
+  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
   y: [12, 18, 29],
-  name: 'LA Zoo',
+  name: 'Rank 2',
   type: 'bar'
 };
 
-var data = [trace1, trace2];
+//var trace2_bar = {
+  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
+  y: [12, 18, 29],
+  name: 'Rank 3',
+  type: 'bar'
+};
 
-var layout = {barmode: 'group'};
+var trace2_bar = {
+  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
+  y: [12, 18, 29],
+  name: 'Rank 4',
+  type: 'bar'
+};
 
-Plotly.newPlot('myDiv2', data, layout); */
+var trace2_bar = {
+  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
+  y: [12, 18, 29],
+  name: 'Rank 5',
+  type: 'bar'
+};*/
 
+var data = [trace1_bar];
+
+var layout = {
+  //xaxis: {title: 'X axis'},
+  yaxis: {
+      title: 'Losses                               Wins',
+      zeroline: true,
+      tickfont: {
+      size: 14,
+    }
+    },
+  xaxis: {
+    tickangle: -45,
+    tickfont: {
+      size: 10,
+    }
+  },
+  margin: {
+    l: 150,
+    r: 40,
+    b: -10,
+    t: 80
+  },
+  barmode: 'relative',
+  bargap: 0.30,
+  title: 'Current Streak',
+  paper_bgcolor: 'rgb(254, 247, 234)',
+  plot_bgcolor: 'rgb(254, 247, 234)',
+  width: 800,
+  height: 800,
+  autosize: true,
+};
+
+Plotly.newPlot('myDiv2', data, layout);
 
 /* Plotly sunburst chart: https://plotly.com/javascript/sunburst-charts/
 
