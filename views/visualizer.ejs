@@ -446,7 +446,7 @@
             ticksuffix: ' ',
             //width: 2000,
             //height: 1500,
-            autosize: true
+            //autosize: true
         }
     };
 /*      Text coloring for default color scale
@@ -488,9 +488,9 @@
         }
     }
 
-    
+    var config = {responsive: true}
 
-    Plotly.newPlot('myDiv', data, layout);
+    Plotly.newPlot('myDiv', data, layout, config);
 
 
 
@@ -662,16 +662,17 @@ var layout = {
     yanchor: 'middle',
     xanchor: 'right'
   },
-  width: 800,
+  //width: 800,
   height: 800,
-  autosize: true,
+  //autosize: true,
   paper_bgcolor: 'rgb(254, 247, 234)',
   plot_bgcolor: 'rgb(254, 247, 234)',
   hovermode: 'closest'
 };
 
+var config = {responsive: true}
 
-Plotly.newPlot('myDiv1', data, layout); 
+Plotly.newPlot('myDiv1', data, layout, config); 
 
 
 
@@ -818,7 +819,12 @@ var trace2_bar = {
 var data = [trace1_bar];
 
 var layout = {
-  //xaxis: {title: 'X axis'},
+  xaxis: {title: 'Teams',
+  tickfont: {
+      size: 14,
+      color: 'rgba(0,0,0,0)'
+    }
+},
   yaxis: {
       title: 'Losses                               Wins',
       zeroline: true,
@@ -826,54 +832,31 @@ var layout = {
       size: 14,
     }
     },
-  xaxis: {
-    tickangle: -45,
-    tickfont: {
-      size: 10,
-    }
-  },
+  //xaxis: {
+    //tickangle: -45,
+    //tickfont: {
+      //size: 8,
+    //}
+  //},
   margin: {
-    l: 150,
-    r: 40,
-    b: -10,
-    t: 80
+    //l: 150,
+    //r: 40,
+    //b: -10,
+    //t: 80
   },
   barmode: 'relative',
   bargap: 0.30,
   title: 'Current Streak',
   paper_bgcolor: 'rgb(254, 247, 234)',
   plot_bgcolor: 'rgb(254, 247, 234)',
-  width: 800,
+  //width: 800,
   height: 800,
-  autosize: true,
+  //autosize: true,
 };
 
-Plotly.newPlot('myDiv2', data, layout);
+var config = {responsive: true}
 
-/* Plotly sunburst chart: https://plotly.com/javascript/sunburst-charts/
-
-var data = [
-{
-  "type": "sunburst",
-  "labels": ["Eve", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"],
-  "parents": ["", "Eve", "Eve", "Seth", "Seth", "Eve", "Eve", "Awan", "Eve" ],
-  "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
-  "leaf": {"opacity": 0.4},
-  "marker": {"line": {"width": 2}},
-  "branchvalues": 'total'
-}];
-
-var layout = {
-  "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
-};
-
-
-Plotly.newPlot('myDiv', data, layout, {showSendToCloud: true})
-
-myPlot = document.getElementById("myDiv");
-
-*/
-
+Plotly.newPlot('myDiv2', data, layout, config);
 
 
 
