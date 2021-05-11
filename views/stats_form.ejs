@@ -2,7 +2,7 @@
 
 <p>Select a division and team</p>
 
-<form action="/stats/form" method="POST">
+<form action="/stats/dashboard" method="POST">
   <label>Conference:</label>
   <select name="Conference" id="conference-selector">
     <option value="" disabled selected>Select a Conference</option>
@@ -13,7 +13,7 @@
   <br>
   <label>Division:</label>
   <select name="Division" id="division-selector"> 
-    
+
   </select>
   <br>
 
@@ -62,7 +62,7 @@
                             {"id": "1", "displayName":"Atlanta Hawks"},
                             {"id": "14", "displayName":"Miami Heat"},
                             {"id": "30", "displayName":"Charlotte Hornets"},
-                            {"id": "7", "displayName":"Washington Wizards"},
+                            {"id": "27", "displayName":"Washington Wizards"},
                             {"id": "19", "displayName":"Orlando Magic"}
                         ]
                     }
@@ -76,7 +76,7 @@
                         "id":"4",
                         "displayName":"Northwest",
                         "teams":[
-                            {"id": "26", "displayName":"Utah Jass"},
+                            {"id": "26", "displayName":"Utah Jazz"},
                             {"id": "7", "displayName":"Denver Nuggets"},
                             {"id": "22", "displayName":"Portland Trail Blazers"},
                             {"id": "25", "displayName":"Oklahoma City Thunder"},
@@ -110,7 +110,6 @@
         ]
     }
     console.log(conferenceOptions)
-    console.log("GOT TO HERE")
     var conferenceSelector = document.getElementById('conference-selector')
     var divisionSelector = document.getElementById('division-selector')
     var teamSelector = document.getElementById('team-selector')
@@ -124,7 +123,7 @@
     function selectConference() {
         submitButton.disabled = true
         teamOptions = {}
-        teamChoice = {}
+        teamChoice = 0
         divisionOptions = {}
         divisionChoice = {}
         conferenceChoice = this.value
@@ -144,6 +143,15 @@
         }
         console.log("Division Selector After: ", divisionSelector)
         console.log(teamSelector)
+        
+        // Create placeholder label
+        var placeholderLabel = document.createElement("option")
+        placeholderLabel.disabled = true
+        placeholderLabel.selected = true
+        placeholderLabel.text = "Select a Division"
+        divisionSelector.appendChild(placeholderLabel)
+
+        // Create options for division dropdown
         var loopIndex = 0
         for ( const divisionOption of divisionOptions ) {
             var option = document.createElement("option")
@@ -174,6 +182,14 @@
             teamSelector.removeChild(teamSelector.firstChild)
         }
         
+        // Create placeholder label
+        var placeholderLabel = document.createElement("option")
+        placeholderLabel.disabled = true
+        placeholderLabel.selected = true
+        placeholderLabel.text = "Select a Team"
+        teamSelector.appendChild(placeholderLabel)
+
+        // Create options for team dropdown
         for ( const teamOption of teamOptions ) {
             var option = document.createElement("option")
             option.value = conferenceOptions.conferences[conferenceChoice].divisions[divisionChoice].teams[loopIndex].id
