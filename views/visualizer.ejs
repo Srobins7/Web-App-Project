@@ -162,7 +162,7 @@
     var display_div1 = document.getElementById('myDiv')
     var display_div2 = document.getElementById('myDiv1')
     var display_div3 = document.getElementById('myDiv2')
-    //var display_div3 = document.getElementsByTagName('div')[7].id
+    
 
     display_div1.style.display = "block"
     display_div2.style.display = "none"
@@ -230,60 +230,15 @@
     
     bar_radio.addEventListener("click", showBarChart)
     
-    /*var font_size = 12
-    if (window.innerWidth < 500) {
-        document.getElementById("myDiv").style.font = "10px";
-        if (window.innerwidth<200) {
-            document.getElementById("myDiv").style.font = "8px";
-        }
-
-    }*/
     
 
     //plotly annotated heatmap: https://plotly.com/javascript/heatmaps/
 
-   //horizontal divisions
+  
     var xValues = ['Rank 1', 'Rank 2', 'Rank 3', 'Rank 4', 'Rank 5'];
 
     var yValues = [ 'Southwest', 'Pacific', 'Northwest', 'Southeast', 'Central','Atlantic'];
 
-    //vertical divisions
-
-    //var xValues = ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest'];
-
-    //var yValues = ['Rank 5', 'Rank 4', 'Rank 3', 'Rank 2', 'Rank 1'];
-    
-   //convert object to string without " " in output: https://stackoverflow.com/questions/11233498/json-stringify-without-quotes-on-properties
-    //vertical tvalues
-   /*var tValues = [
-        [JSON.parse(JSON.stringify(all_teams['atlantic'][0]['name'])), JSON.parse(JSON.stringify(all_teams['central'][0]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][0]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][0]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][0]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][0]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['atlantic'][1]['name'])), JSON.parse(JSON.stringify(all_teams['central'][1]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][1]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][1]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][1]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][1]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['atlantic'][2]['name'])), JSON.parse(JSON.stringify(all_teams['central'][2]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][2]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][2]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][2]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][2]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['atlantic'][3]['name'])), JSON.parse(JSON.stringify(all_teams['central'][3]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][3]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][3]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][3]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][3]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['atlantic'][4]['name'])), JSON.parse(JSON.stringify(all_teams['central'][4]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][4]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][4]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][4]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][4]['name']))],
-    ]; */
-   //horizontal tvalues
-    var tValues = [
-        [JSON.parse(JSON.stringify(all_teams['atlantic'][0]['name'])), JSON.parse(JSON.stringify(all_teams['atlantic'][1]['name'])), JSON.parse(JSON.stringify(all_teams['atlantic'][2]['name'])), JSON.parse(JSON.stringify(all_teams['atlantic'][3]['name'])), JSON.parse(JSON.stringify(all_teams['atlantic'][4]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['central'][0]['name'])), JSON.parse(JSON.stringify(all_teams['central'][1]['name'])), JSON.parse(JSON.stringify(all_teams['central'][2]['name'])), JSON.parse(JSON.stringify(all_teams['central'][3]['name'])), JSON.parse(JSON.stringify(all_teams['central'][4]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['southeast'][0]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][1]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][2]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][3]['name'])), JSON.parse(JSON.stringify(all_teams['southeast'][4]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['northwest'][0]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][1]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][2]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][3]['name'])), JSON.parse(JSON.stringify(all_teams['northwest'][4]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['pacific'][0]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][1]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][2]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][3]['name'])), JSON.parse(JSON.stringify(all_teams['pacific'][4]['name']))],
-        [JSON.parse(JSON.stringify(all_teams['southwest'][0]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][1]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][2]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][3]['name'])), JSON.parse(JSON.stringify(all_teams['southwest'][4]['name']))]
-    ]; 
-   
-
-    //console.log(tValues)
-   //vertical zvalues
-    /*var zValues = [
-        [0.00, 0.00, 0.75, 0.75, 0.00, 0.00],
-        [0.75, 0.00, 0.75, 0.75, 0.00, 0.00],
-        [0.75, 0.75, 0.75, 0.75, 0.75, 0.00],
-        [0.00, 0.00, 0.00, 0.75, 0.00, 0.00],
-        [0.00, 0.00, 0.00, 0.75, 0.00, 0.00]
-    ];*/
-
-    //horizontal zvalues
     var zValues = [
         [, , , , ],
         [ , , , ,],
@@ -422,7 +377,6 @@
     }];
 
     var layout = {
-        //title: 'Annotated Heatmap',
         annotations: [],
         hovermode: false,
         xaxis: {
@@ -432,18 +386,10 @@
         yaxis: {
             ticks: '',
             ticksuffix: ' ',
-            //width: 2000,
-            //height: 1500,
-            //autosize: true
+
         }
     };
-/*      Text coloring for default color scale
-        if (currentValue != 0.0) {
-                var textColor = 'white';
-            } else {
-                var textColor = 'black';
-            }
-            */
+
     for (var i = 0; i < yValues.length; i++) {
         for (var j = 0; j < xValues.length; j++) {
             var currentValue = zValues[i][j];
@@ -457,8 +403,6 @@
                 yref: 'y1',
                 x: xValues[j],
                 y: yValues[i],
-                //text: zValues[i][j],
-                //text: tValues[i][j],
                 text: parseFloat(Number(Math.round(parseFloat(zValues[i][j]) + 'e2') + 'e-2').toFixed(2)) + "%",
                 hovertext: getKeyByValue(team_win,zValues[i][j]),
                 
@@ -653,9 +597,7 @@ var layout = {
     yanchor: 'middle',
     xanchor: 'right'
   },
-  //width: 800,
   height: 800,
-  //autosize: true,
   paper_bgcolor: 'rgb(254, 247, 234)',
   plot_bgcolor: 'rgb(254, 247, 234)',
   hovermode: 'closest'
@@ -745,25 +687,7 @@ Plotly.newPlot('myDiv1', data, layout, config);
 ,team_streak["sacramento kings"],team_streak["san antonio spurs"],team_streak["toronto raptors"],team_streak["utah jazz"],team_streak["washington wizards"]];
 
 console.log(y_streak)
-/*
-   for (var m = 0; m<30; m++) {
-          
-          y_streak[m]= all_teams['atlantic'][m]['streak']
-          y_rank2[m]= all_teams['central'][m]['streak']
-          y_rank3[m][m1]= all_teams['southeast'][m]['streak']
-          y_rank4[m][m1]= all_teams['northwest'][m]['streak']
-          y_rank5[m][m1]= all_teams['pacific'][m]['streak']
-          
-               
-    }
 
-    console.log(y_rank1)
-    console.log(y_rank2)
-    console.log(y_rank3)
-    console.log(y_rank4)
-    console.log(y_rank5)
-
-    */
 
    var trace1_bar = {
   x: ['Atlanta Hawks', 'Boston Celtics', 'Brooklyn Nets', 'Charlotte Hornets', 'Chicago Bulls', 
@@ -773,39 +697,10 @@ console.log(y_streak)
 'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers',
 'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'],
   y: y_streak,
-  //name: 'Rank 1',
   type: 'bar',
   width: [0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,0.8, 0.8, 0.8, 0.8,0.8,]
 };
 
-/*
-var trace2_bar = {
-  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
-  y: [12, 18, 29],
-  name: 'Rank 2',
-  type: 'bar'
-};
-
-//var trace2_bar = {
-  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
-  y: [12, 18, 29],
-  name: 'Rank 3',
-  type: 'bar'
-};
-
-var trace2_bar = {
-  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
-  y: [12, 18, 29],
-  name: 'Rank 4',
-  type: 'bar'
-};
-
-var trace2_bar = {
-  x: ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest' ],
-  y: [12, 18, 29],
-  name: 'Rank 5',
-  type: 'bar'
-};*/
 
 var data = [trace1_bar];
 
@@ -823,26 +718,13 @@ var layout = {
       size: 14,
     }
     },
-  //xaxis: {
-    //tickangle: -45,
-    //tickfont: {
-      //size: 8,
-    //}
-  //},
-  margin: {
-    //l: 150,
-    //r: 40,
-    //b: -10,
-    //t: 80
-  },
+
   barmode: 'relative',
   bargap: 0.30,
   title: 'Current Streak',
   paper_bgcolor: 'rgb(254, 247, 234)',
   plot_bgcolor: 'rgb(254, 247, 234)',
-  //width: 800,
   height: 800,
-  //autosize: true,
 };
 
 var config = {responsive: true}
