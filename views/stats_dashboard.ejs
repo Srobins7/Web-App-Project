@@ -1,37 +1,32 @@
 <h2>Team Stats </h2>
 
-<p class="lead">Team Name: <%= team_name %> <br>
-Record: <%= record %>
-</p>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-sm">
+      <p class="lead" id="team-name">Team Name: </p>
+      <p class="lead" id="division-rank">Current Division Rank: </p>
+    </div>
+    <div class="col-sm">
+      <img id="team-logo" width="200px" height="200px">
+    </div>
+  </div>
+</div>
 
 <div id="chart-container" height="700px">
 
     <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Home</th>
-            <th scope="col">Away</th>
-            <th scope="col">Date</th>
+            <th scope="col">Overall Record</th>
+            <th scope="col">Home Record</th>
+            <th scope="col">Away Record</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">11/12/2021</th>
-            <td id="test">Hawks</td>
-            <td>Lakers</td>
-            <td>Atlanta</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+            <td id="overall-record">11-12</td>
+            <td id="home-record">12-12</td>
+            <td id="away-record">13-12</td>
           </tr>
         </tbody>
       </table>
@@ -40,13 +35,15 @@ Record: <%= record %>
 
 
 <script type="text/javascript">
-var team_data = JSON.parse('<%- data %>')
-console.log(team_data)
+  var teamData = JSON.parse('<%- data %>')
+  console.log(teamData)
 
-var tsd = team_data["team"]
-var location = object.values(tsd['location'])
-
-document.getElementById("test").innerHTML = location;
+  document.getElementById("team-name").innerHTML = "Team Name: "+teamData.team.displayName
+  document.getElementById("division-rank").innerHTML = "Division Rank: "+teamData.team.standingSummary
+  document.getElementById("overall-record").innerHTML = teamData.team.record.items[0].summary
+  document.getElementById("home-record").innerHTML = teamData.team.record.items[1].summary
+  document.getElementById("away-record").innerHTML = teamData.team.record.items[2].summary
+  document.getElementById("team-logo").src = teamData.team.logos[0].href
 
 </script>
 
