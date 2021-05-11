@@ -42,7 +42,7 @@
 
    git push heroku main
 
-   Step 5:  Now your app should be hosted on the internet.  Just as an aside if you run into any issues with hosting make sure that there is a Procfile in your repo's version of our code that has web: node ./bin/www
+   Step 6:  Now your app should be hosted on the internet.  Just as an aside if you run into any issues with hosting make sure that there is a Procfile in your repo's version of our code that has web: node ./bin/www
   
   
 4. API
