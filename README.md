@@ -59,36 +59,36 @@
 
    This is a list of the different team ids on the ESPN API for your reference:
 
-   Atlanta Hawks	1
-   Boston Celtics	2
-   Brooklyn Nets	17
-   Charlotte Hornets	30
-   Chicago Bulls	4
-   Cleveland Cavaliers	5
-   Dallas Mavericks	6
-   Denver Nuggets	7
-   Detroit Pistons	8
-   Golden State Warriors	9
-   Houston Rockets	10
-   Indiana Pacers	11
-   Los Angeles Clippers	12
-   Los Angeles Lakers	13
-   Memphis Grizzlies	29
-   Miami Heat	14
-   Milwaukee Bucks	15
-   Minnesota Timberwolves	16
-   New Orleans Pelicans	3
-   New York Knicks	18
-   Oklahoma City Thunder	25
-   Orlando Magic	19
-   Philadelphia 76ers	20
-   Phoenix Suns	21
-   Portland Trail Blazers	22
-   Sacramento Kings	23
-   San Antonio Spurs	24
-   Toronto Raptors	28
-   Utah Jazz	26
-   Washington Wizards	27
+   Atlanta Hawks	1  
+   Boston Celtics	2   
+   Brooklyn Nets	17  
+   Charlotte Hornets	30  
+   Chicago Bulls	4  
+   Cleveland Cavaliers	5  
+   Dallas Mavericks	6  
+   Denver Nuggets	7  
+   Detroit Pistons	8  
+   Golden State Warriors	9  
+   Houston Rockets	10  
+   Indiana Pacers	11  
+   Los Angeles Clippers	12  
+   Los Angeles Lakers	13  
+   Memphis Grizzlies	29  
+   Miami Heat	14  
+   Milwaukee Bucks	15  
+   Minnesota Timberwolves	16  
+   New Orleans Pelicans	3  
+   New York Knicks	18  
+   Oklahoma City Thunder	25  
+   Orlando Magic	19  
+   Philadelphia 76ers	20  
+   Phoenix Suns	21  
+   Portland Trail Blazers	22  
+   Sacramento Kings	23  
+   San Antonio Spurs	24  
+   Toronto Raptors	28  
+   Utah Jazz	26  
+   Washington Wizards	27  
 
 
 
