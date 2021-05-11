@@ -4,7 +4,7 @@
 
 <form action="/stats/dashboard" method="POST">
   <label>Conference:</label>
-  <select name="Conference" id="conference-selector">
+  <select id="conference-selector">
     <option value="" disabled selected>Select a Conference</option>
     <option value=0 label="Eastern"></option>
     <option value=1 label="Western"></option>
@@ -119,6 +119,7 @@
     var divisionChoice = {}
     var teamOptions = {}
     var teamChoice = {}
+    
     
     function selectConference() {
         submitButton.disabled = true

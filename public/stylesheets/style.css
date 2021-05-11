@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+/*
+
+@media only screen and (max-width: 500px) {
+  .myDiv {
+    font-size:9px;
+  }
+
+}
+
+@media only screen and (max-width: 200px) {
+  .myDiv {
+    font-size:5px;
+  }
+
+}*/
+
+
